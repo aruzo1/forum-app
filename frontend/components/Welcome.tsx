@@ -20,6 +20,7 @@ const Welcome = () => {
           layout="fill"
           objectFit="cover"
           className="rounded-r-md"
+          priority
         />
         <div className="absolute w-full h-full rounded-r-md bg-neutral-800/90 lg:bg-transparent lg:bg-gradient-to-r lg:from-neutral-800" />
       </div>
