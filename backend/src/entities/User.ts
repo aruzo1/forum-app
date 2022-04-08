@@ -26,6 +26,10 @@ export default class User extends BaseEntity {
   @Column({ nullable: true })
   password: string;
 
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  avatarUrl: string;
+
   @Field()
   @CreateDateColumn({ default: "NOW()" })
   createdAt: Date;

@@ -15,11 +15,17 @@ const discordProvider = async (code: string) => {
     })
     .then((res) => res.data.access_token);
 
-  return await axios
+  const user = await axios
     .get("https://discordapp.com/api/users/@me", {
       headers: { Authorization: `Bearer ${access_token}` },
     })
     .then((res) => res.data);
+
+  if (user.avatar) {
+    user.avatar_url = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`;
+  }
+
+  return user;
 };
 
 const githubProvider = async (code: string) => {

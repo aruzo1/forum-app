@@ -18,17 +18,17 @@ router.get("/authorize/:providerName", async (req, res) => {
   try {
     const providerUser = await provider(code);
     let user = await User.findOneBy({ email: providerUser.email });
- 
+    console.log(providerUser);
     if (!user) {
       user = await User.create({
-        login: providerUser.login || providerUser.username,
+        login: providerUser.login || providerUser.username || providerUser.name,
         email: providerUser.email,
+        avatarUrl: providerUser.avatar_url,
       }).save();
     }
 
     res.json({ token: generateToken(user.id) });
   } catch (err) {
-    console.log(err);
     res.sendStatus(401);
   }
 });
