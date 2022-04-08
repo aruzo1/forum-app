@@ -9,4 +9,23 @@
     color: theme("colors.neutral.300");
     font-family: Montserrat, sans;
   }
+  ::selection {
+    background: theme("colors.brand.400");
+    color: theme("colors.neutral.800")
+  }
+}
+
+@layer components {
+  .layout {
+    @apply grid grid-cols-10 gap-4 py-4;
+  }
+  .card {
+    @apply p-8 rounded-md drop-shadow-lg border border-neutral-700 bg-neutral-800;
+  }
+  .button-border {
+    @apply w-fit px-4 py-2 rounded-md font-semibold border border-neutral-700 bg-neutral-800 hover:border-neutral-600 hover:bg-neutral-700 transition-colors;
+  }
+  .button-brand {
+    @apply w-fit px-4 py-2 rounded-md font-semibold text-neutral-900 bg-brand-400 hover:bg-brand-300 transition-colors;
+  }
 }

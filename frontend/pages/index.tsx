@@ -1,12 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Welcome from "../components/Welcome";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <div className="container layout">
       <Head>
         <title>Forum | Home</title>
       </Head>
+      <Welcome />
     </div>
   );
 };
