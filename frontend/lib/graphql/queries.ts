@@ -1,8 +1,8 @@
 import { gql } from "graphql-request";
-import { IThread } from "../types";
+import { ICategory, IThread } from "../types";
 import client from "./client";
 
-const LATEST_THREADS = gql`
+const HOME_PAGE = gql`
   {
     threads(limit: 3) {
       id
@@ -14,9 +14,22 @@ const LATEST_THREADS = gql`
         avatarUrl
       }
     }
+    categories {
+      id
+      name
+      description
+      subCategories {
+        id
+        name
+        threadsCount
+      }
+    }
   }
 `;
 
-export const fetchLatestThreads = async (): Promise<IThread[]> => {
-  return client.request(LATEST_THREADS).then((res) => res.threads);
+export const fetchHomePage = async (): Promise<{
+  threads: IThread[];
+  categories: ICategory[];
+}> => {
+  return client.request(HOME_PAGE);
 };
