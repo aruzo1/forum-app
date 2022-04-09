@@ -1,17 +1,12 @@
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import { ICategory, IThread } from "../lib/types";
+import { IHomePageProps } from "../lib/types";
 import { fetchHomePage } from "../lib/graphql/queries";
 import Welcome from "../components/Welcome";
 import LatestThreads from "../components/LatestThreads";
 import Categories from "../components/Categories";
 
-interface Props {
-  threads: IThread[];
-  categories: ICategory[];
-}
-
-const HomePage: NextPage<Props> = ({ threads, categories }) => {
+const HomePage: NextPage<IHomePageProps> = ({ threads, categories }) => {
   return (
     <div className="container layout">
       <Head>

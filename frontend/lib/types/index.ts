@@ -26,3 +26,44 @@ export interface IThread {
   createdAt?: string;
   user?: IUser;
 }
+
+export interface IAuthContext {
+  user?: null | IUser;
+  register?: (data: IRegisterValues) => Promise<void>;
+  login?: (data: ILoginValues) => Promise<void>;
+}
+
+export interface IModalsContext {
+  modals: {
+    login: boolean;
+    register: boolean;
+  };
+  openModal?: (name: string) => void;
+  closeModal?: (name: string) => void;
+}
+
+export interface IHomePageProps {
+  threads: IThread[];
+  categories: ICategory[];
+}
+
+export interface IRegisterValues {
+  login: string;
+  email: string;
+  password: string;
+}
+
+export interface ILoginValues {
+  email: string;
+  password: string;
+}
+
+export interface IInput {
+  label: string;
+  placeholder: string;
+  name: string;
+  error?: string;
+  touched?: boolean;
+  type?: string;
+  autoComplete?: string;
+}

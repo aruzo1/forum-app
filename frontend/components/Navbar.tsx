@@ -1,7 +1,10 @@
 import Link from "next/link";
+import { useModals } from "../lib/contexts/ModalsContext";
 import Logo from "../public/logo.svg";
 
 const Navbar = () => {
+  const { openModal } = useModals();
+
   return (
     <nav className="bg-neutral-800 border-b border-neutral-700">
       <div className="container flex justify-between items-center h-16">
@@ -11,8 +14,15 @@ const Navbar = () => {
           </a>
         </Link>
         <div className="flex gap-x-4">
-          <button className="button-border">Login</button>
-          <button className="button-brand">Register</button>
+          <button className="button-border" onClick={() => openModal!("login")}>
+            Login
+          </button>
+          <button
+            className="button-brand"
+            onClick={() => openModal!("register")}
+          >
+            Register
+          </button>
         </div>
       </div>
     </nav>
