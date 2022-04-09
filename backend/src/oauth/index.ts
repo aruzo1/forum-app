@@ -1,4 +1,5 @@
 import { Router } from "express";
+import url from "url";
 import { User } from "../entities";
 import generateToken from "../helpers/generateToken";
 import providers from "./providers";
@@ -18,7 +19,7 @@ router.get("/authorize/:providerName", async (req, res) => {
   try {
     const providerUser = await provider(code);
     let user = await User.findOneBy({ email: providerUser.email });
-    console.log(providerUser);
+
     if (!user) {
       user = await User.create({
         login: providerUser.login || providerUser.username || providerUser.name,
@@ -27,7 +28,12 @@ router.get("/authorize/:providerName", async (req, res) => {
       }).save();
     }
 
-    res.json({ token: generateToken(user.id) });
+    res.redirect(
+      url.format({
+        host: process.env.APP_URL,
+        query: { token: generateToken(user.id) },
+      })
+    );
   } catch (err) {
     res.sendStatus(401);
   }
