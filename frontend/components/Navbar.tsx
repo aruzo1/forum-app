@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useModals } from "../lib/contexts/ModalsContext";
+import { useModals } from "./contexts/ModalsContext";
 import Logo from "../public/logo.svg";
 
 const Navbar = () => {

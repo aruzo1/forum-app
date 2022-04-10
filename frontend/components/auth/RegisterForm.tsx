@@ -1,5 +1,5 @@
 import { FormikHelpers } from "formik";
-import { useAuth } from "../../lib/contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 import { registerSchema } from "../../lib/schemas";
 import { IRegisterValues } from "../../lib/types";
 import AuthForm from "./AuthForm";

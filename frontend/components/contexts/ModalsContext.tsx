@@ -5,11 +5,10 @@ import {
   useEffect,
   useState,
 } from "react";
-import { motion } from "framer-motion";
-import LoginForm from "../../components/auth/LoginForm";
-import RegisterForm from "../../components/auth/RegisterForm";
-import { IModalsContext } from "../types";
-import { fade, scaleFade } from "../animations";
+import LoginForm from "../auth/LoginForm";
+import RegisterForm from "../auth/RegisterForm";
+import { IModalsContext } from "../../lib/types";
+import Fade from "../animations/Fade";
 
 const initialValues: IModalsContext = {
   modals: {
@@ -35,30 +34,25 @@ export const ModalsProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     if (Object.values(modals).every((m) => !m)) {
-      document.body.style.overflow = "overlay";
+      document.body.style.overflowY = "auto";
     } else {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowY = "hidden";
     }
   }, [modals]);
 
   return (
     <ModalsContext.Provider value={{ modals, openModal, closeModal }}>
-      {!Object.values(modals).every((m) => !m) && (
-        <motion.div
+      <Fade show={!Object.values(modals).every((m) => !m)}>
+        <div
           className="z-10 fixed flex items-start justify-center w-full h-screen py-16 px-4 overflow-y-auto bg-neutral-900/50"
           onClick={closeAllModals}
-          {...fade}
         >
-          <motion.div
-            className="max-w-full"
-            onClick={(e) => e.stopPropagation()}
-            {...scaleFade}
-          >
+          <div className="max-w-full" onClick={(e) => e.stopPropagation()}>
             {modals.login && <LoginForm />}
             {modals.register && <RegisterForm />}
-          </motion.div>
-        </motion.div>
-      )}
+          </div>
+        </div>
+      </Fade>
       {children}
     </ModalsContext.Provider>
   );

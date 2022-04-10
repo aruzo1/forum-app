@@ -9,9 +9,9 @@ const Input = (props: IInput) => {
     <div className="flex flex-col gap-y-2">
       <label
         htmlFor={name}
-        className={`w-fit ${
+        className={`w-fit text-brand-400 transition-colors ${
           error && touched && "text-error"
-        } transition-colors`}
+        }`}
       >
         {label}
       </label>

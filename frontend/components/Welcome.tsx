@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useModals } from "../lib/contexts/ModalsContext";
+import { useModals } from "./contexts/ModalsContext";
 
 const Welcome = () => {
   const { openModal } = useModals();
@@ -7,10 +7,13 @@ const Welcome = () => {
   return (
     <div className="col-span-full card flex lg:col-span-7 p-0">
       <div className="flex flex-col gap-y-8 justify-between items-center lg:items-start lg:w-7/12 p-8 text-center lg:text-left">
-        <h1 className="font-extrabold text-5xl text-brand-400">
-          Are you ready to join now?
+        <h1 className="font-semibold text-5xl">
+          Are you ready to{" "}
+          <span className="underline decoration-brand-400 text-brand-400">
+            join now?
+          </span>
         </h1>
-        <p>
+        <p className="text-neutral-200">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry&#39;s standard dummy text
           ever since the 1500s.

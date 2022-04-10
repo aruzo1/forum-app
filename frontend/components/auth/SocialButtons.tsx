@@ -21,7 +21,7 @@ const SocialButtons = () => {
       {buttons.map(({ name, Icon, href }) => (
         <Link key={name} href={href}>
           <a key={name} className="button-border-icon w-full" type="button">
-            <Icon className="fill-neutral-300" />
+            <Icon className="fill-brand-400" />
             Sign in with {name}
           </a>
         </Link>

@@ -23,7 +23,7 @@ const AuthForm = (props: {
         <Form className="flex flex-col items-center gap-y-8 w-[25rem] max-w-full card">
           <h1 className="font-extrabold text-5xl text-brand-400">{name}</h1>
           <SocialButtons />
-          <div className="text-with-lines">
+          <div className="text-with-lines text-neutral-200">
             <p className="min-w-max">{name} with email</p>
           </div>
           <div className="w-full flex flex-col gap-y-4">

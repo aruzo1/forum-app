@@ -9,19 +9,18 @@ const Categories = ({ categories }: { categories: ICategory[] }) => {
           key={category.id}
           className="card col-span-full flex flex-col gap-y-4"
         >
-          <h2 className="font-extrabold text-3xl text-brand-400">
+          <h2 className="font-semibold text-3xl">
             {category.name}
           </h2>
-          <p>{category.description}</p>
-
+          <p className="text-neutral-200">{category.description}</p>
           {category.subCategories?.map((subCategory) => (
             <Link key={subCategory.id} href={`/sub-category/${subCategory.id}`}>
-              <a className="flex justify-between items-center rounded-md outline outline-8 outline-neutral-800 hover:outline-neutral-700 hover:bg-neutral-700 transition-all">
-                <h3 className="font-bold text-lg text-brand-400">
+              <a className="flex justify-between items-center rounded-lg outline outline-8 outline-neutral-800 hover:outline-neutral-700 hover:bg-neutral-700 transition-all">
+                <h3 className="font-medium text-lg text-brand-400">
                   {subCategory.name}
                 </h3>
                 <div className="flex flex-col items-center">
-                  <h4 className="font-bold text-lg text-brand-400">
+                  <h4 className="font-medium text-lg text-brand-400">
                     {subCategory.threadsCount}
                   </h4>
                   <p className="text-sm">Threads</p>
