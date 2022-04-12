@@ -4,7 +4,7 @@ import { AuthProvider } from "../components/contexts/AuthContext";
 import { ModalsProvider } from "../components/contexts/ModalsContext";
 import Navbar from "../components/navbar/Navbar";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function Forum({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
       <ModalsProvider>
@@ -15,4 +15,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default Forum;

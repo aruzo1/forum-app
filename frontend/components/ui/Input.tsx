@@ -16,7 +16,7 @@ const Input = (props: IInput) => {
         {label}
       </label>
       <Field
-        className={`input ${error && touched && "!border-error"}`}
+        className={`input ${error && touched && "border-error"}`}
         placeholder={placeholder}
         name={name}
         id={name}

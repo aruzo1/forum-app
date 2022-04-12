@@ -54,6 +54,6 @@
     @apply w-full flex items-center before:w-1/2 before:h-[1px] before:mr-4 before:bg-neutral-300 after:w-1/2 after:h-[1px] after:ml-4 after:bg-neutral-300;
   }
   .input {
-    @apply p-2 rounded-lg border border-neutral-700 bg-neutral-900 outline-none focus:border-brand-400 transition-colors placeholder:text-neutral-500;
+    @apply p-2 rounded-lg border border-neutral-700 bg-neutral-900 outline-none focus:border-brand-400 placeholder:text-neutral-500 transition-colors;
   }
 }

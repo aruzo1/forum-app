@@ -9,9 +9,7 @@ const Categories = ({ categories }: { categories: ICategory[] }) => {
           key={category.id}
           className="card col-span-full flex flex-col gap-y-4"
         >
-          <h2 className="font-semibold text-3xl">
-            {category.name}
-          </h2>
+          <h2 className="font-semibold text-3xl">{category.name}</h2>
           <p className="text-neutral-200">{category.description}</p>
           {category.subCategories?.map((subCategory) => (
             <Link key={subCategory.id} href={`/sub-category/${subCategory.id}`}>
