@@ -36,11 +36,13 @@ export default class Thread extends BaseEntity {
   @CreateDateColumn({ default: "NOW()" })
   createdAt: Date;
 
-  @ManyToOne(() => SubCategory, (subCategory) => subCategory.threads)
+  @ManyToOne(() => SubCategory, (subCategory) => subCategory.threads, {
+    cascade: true,
+  })
   @JoinColumn()
   subCategory: SubCategory;
 
-  @ManyToOne(() => User, (user) => user.threads)
+  @ManyToOne(() => User, (user) => user.threads, { cascade: true })
   @JoinColumn()
   user: User;
 }

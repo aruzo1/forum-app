@@ -25,7 +25,9 @@ export default class SubCategory extends BaseEntity {
   @Column()
   name: string;
 
-  @ManyToOne(() => Category, (category) => category.subCategories)
+  @ManyToOne(() => Category, (category) => category.subCategories, {
+    cascade: true,
+  })
   @JoinColumn()
   category: Category;
 
