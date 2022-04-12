@@ -10,7 +10,12 @@ export default class UserResolver {
   @Mutation(() => AuthOutput)
   async login(@Arg("loginInput") input: LoginInput) {
     const user = await User.findOneBy({ email: input.email });
-    if (!user || !(await bcrypt.compare(input.password, user.password))) {
+
+    if (
+      !user?.password ||
+      !input.password ||
+      !(await bcrypt.compare(input.password, user.password))
+    ) {
       throw new UserInputError("Invalid Credentials");
     }
 

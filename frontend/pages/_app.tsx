@@ -6,12 +6,12 @@ import Navbar from "../components/navbar/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ModalsProvider>
-      <AuthProvider>
+    <AuthProvider>
+      <ModalsProvider>
         <Navbar />
         <Component {...pageProps} />
-      </AuthProvider>
-    </ModalsProvider>
+      </ModalsProvider>
+    </AuthProvider>
   );
 }
 
