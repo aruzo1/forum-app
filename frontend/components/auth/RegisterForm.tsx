@@ -24,7 +24,12 @@ const RegisterForm = () => {
       initialValues={{ login: "", email: "", password: "" }}
       inputs={[
         { label: "Login", placeholder: "Login", name: "login" },
-        { label: "Email Adress", placeholder: "Email", name: "email" },
+        {
+          label: "Email Adress",
+          placeholder: "Email",
+          name: "email",
+          type: "email",
+        },
         {
           label: "Password",
           placeholder: "Password",

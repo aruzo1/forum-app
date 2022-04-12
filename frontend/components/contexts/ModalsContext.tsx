@@ -28,9 +28,6 @@ export const ModalsProvider = ({ children }: { children: ReactNode }) => {
   const closeModal = (name: string) => {
     setModals((prev) => ({ ...prev, [name]: false }));
   };
-  const closeAllModals = () => {
-    setModals(initialValues.modals);
-  };
 
   useEffect(() => {
     if (Object.values(modals).every((m) => !m)) {
@@ -45,7 +42,7 @@ export const ModalsProvider = ({ children }: { children: ReactNode }) => {
       <Fade show={!Object.values(modals).every((m) => !m)}>
         <div
           className="z-10 fixed flex items-start justify-center w-full h-screen py-16 px-4 overflow-y-auto bg-neutral-900/50"
-          onClick={closeAllModals}
+          onClick={() => setModals(initialValues.modals)}
         >
           <div className="max-w-full" onClick={(e) => e.stopPropagation()}>
             {modals.login && <LoginForm />}

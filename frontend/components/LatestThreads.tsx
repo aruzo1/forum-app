@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { IThread } from "../lib/types";
-import Avatar from "./user/Avatar";
+import Avatar from "./Avatar";
 
 const LatestThreads = ({ threads }: { threads: IThread[] }) => {
   return (

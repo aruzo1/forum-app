@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { IUser } from "../../lib/types";
+import { IUser } from "../lib/types";
 
 const Avatar = ({ user, size }: { user: IUser; size: number }) => {
   return (
