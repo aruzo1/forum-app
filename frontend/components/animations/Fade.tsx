@@ -1,7 +1,9 @@
 import { Transition } from "@headlessui/react";
 import { Fragment, ReactNode } from "react";
 
-const Fade = ({ children, show }: { children: ReactNode; show: boolean }) => {
+const Fade = (props: { children: ReactNode; show?: boolean }) => {
+  const { children, show } = props;
+
   return (
     <Transition
       as={Fragment}

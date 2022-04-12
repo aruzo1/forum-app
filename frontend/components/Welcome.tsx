@@ -18,7 +18,7 @@ const Welcome = () => {
           industry. Lorem Ipsum has been the industry&#39;s standard dummy text
           ever since the 1500s.
         </p>
-        <button className="button-brand" onClick={() => openModal!("register")}>
+        <button className="btn-brand" onClick={() => openModal!("register")}>
           Join now!
         </button>
       </div>

@@ -1,9 +1,12 @@
-export interface IUser {
-  id?: string;
-  login?: string;
-  createdAt?: string;
-  avatarUrl?: string;
-}
+export type IUser =
+  | {
+      id?: string;
+      login?: string;
+      createdAt?: string;
+      avatarUrl?: string;
+    }
+  | undefined
+  | null;
 
 export interface ICategory {
   id?: string;
@@ -28,9 +31,10 @@ export interface IThread {
 }
 
 export interface IAuthContext {
-  user?: null | IUser;
+  user: IUser;
   register?: (data: IRegisterValues) => Promise<void>;
   login?: (data: ILoginValues) => Promise<void>;
+  logout?: () => void;
 }
 
 export interface IModalsContext {

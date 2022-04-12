@@ -5,10 +5,10 @@ import {
   useEffect,
   useState,
 } from "react";
-import LoginForm from "../auth/LoginForm";
-import RegisterForm from "../auth/RegisterForm";
 import { IModalsContext } from "../../lib/types";
 import Fade from "../animations/Fade";
+import LoginForm from "../auth/LoginForm";
+import RegisterForm from "../auth/RegisterForm";
 
 const initialValues: IModalsContext = {
   modals: {

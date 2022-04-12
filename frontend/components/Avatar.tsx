@@ -4,12 +4,14 @@ import { IUser } from "../lib/types";
 
 const Avatar = ({ user, size }: { user: IUser; size: number }) => {
   return (
-    <Link href={`/user/${user.id}`}>
-      <a className="hover:brightness-125 transition">
+    <Link href={`/user/${user?.id}`}>
+      <a
+        className="relative hover:brightness-125 transition"
+        style={{ width: size, height: size }}
+      >
         <Image
-          src={user.avatarUrl || "/images/unknownAvatar.jpg"}
-          width={size}
-          height={size}
+          src={user?.avatarUrl || "/images/unknownAvatar.jpg"}
+          layout="fill"
           className="rounded-full"
         />
       </a>

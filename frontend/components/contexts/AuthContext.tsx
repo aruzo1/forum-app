@@ -27,13 +27,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setUser(res.user);
     });
   };
-
   const login = async (data: ILoginValues) => {
     return fetchLogin(data).then((res) => {
       localStorage.setItem("token", res.token);
       setUser(res.user);
     });
   };
+  const logout = () => setUser(null);
 
   useEffect(() => {
     if (router.isReady) {
@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, [router.isReady]);
 
   return (
-    <AuthContext.Provider value={{ user, register, login }}>
+    <AuthContext.Provider value={{ user, register, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

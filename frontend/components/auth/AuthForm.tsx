@@ -40,7 +40,7 @@ const AuthForm = (props: {
               />
             ))}
           </div>
-          <button className="button-brand w-full" type="submit">
+          <button className="btn-brand w-full" type="submit">
             {name}
           </button>
         </Form>

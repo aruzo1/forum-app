@@ -41,13 +41,13 @@
   .card {
     @apply p-8 rounded-lg drop-shadow-lg border border-neutral-700 bg-neutral-800;
   }
-  .button-border {
+  .btn-border {
     @apply w-fit px-4 py-2 rounded-full font-medium border border-neutral-700 bg-neutral-800 hover:border-neutral-600 hover:bg-neutral-700 transition-colors;
   }
-  .button-brand {
+  .btn-brand {
     @apply w-fit px-4 py-2 rounded-full font-medium text-neutral-900 bg-brand-400 hover:bg-brand-300 transition-colors;
   }
-  .button-border-icon {
+  .btn-border-icon {
     @apply flex justify-center gap-x-4 w-fit px-4 py-2 rounded-full font-medium border border-neutral-700 bg-neutral-800 hover:border-neutral-600 hover:bg-neutral-700 transition-colors;
   }
   .text-with-lines {
