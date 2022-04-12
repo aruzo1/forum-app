@@ -23,7 +23,12 @@ const LoginForm = () => {
       validationSchema={loginSchema}
       initialValues={{ email: "", password: "" }}
       inputs={[
-        { label: "Email Adress", placeholder: "Email", name: "email" },
+        {
+          label: "Email Adress",
+          placeholder: "Email",
+          name: "email",
+          type: "email",
+        },
         {
           label: "Password",
           placeholder: "Password",
