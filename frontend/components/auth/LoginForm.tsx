@@ -1,9 +1,9 @@
 import { FormikHelpers } from "formik";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import { loginSchema } from "../../lib/schemas";
 import { ILoginValues } from "../../lib/types";
 import AuthForm from "./AuthForm";
-import { useModals } from "../contexts/ModalsContext";
+import { useModals } from "../../contexts/ModalsContext";
 
 const LoginForm = () => {
   const { login } = useAuth();

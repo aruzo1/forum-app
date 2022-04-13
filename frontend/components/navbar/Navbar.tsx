@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { useAuth } from "../contexts/AuthContext";
-import { useModals } from "../contexts/ModalsContext";
+import { useAuth } from "../../contexts/AuthContext";
+import { useModals } from "../../contexts/ModalsContext";
 import Logo from "../../public/logo.svg";
 import Account from "./Account";
 

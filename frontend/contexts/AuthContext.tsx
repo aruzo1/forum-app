@@ -6,10 +6,10 @@ import {
   useState,
 } from "react";
 import { useRouter } from "next/router";
-import client from "../../lib/graphql/client";
-import { IAuthContext, ILoginValues, IRegisterValues } from "../../lib/types";
-import { fetchAccount } from "../../lib/graphql/queries";
-import { fetchLogin, fetchRegister } from "../../lib/graphql/mutations";
+import client from "../lib/graphql/client";
+import { IAuthContext, ILoginValues, IRegisterValues } from "../lib/types";
+import { fetchAccount } from "../lib/graphql/queries";
+import { fetchLogin, fetchRegister } from "../lib/graphql/mutations";
 
 const initialValues: IAuthContext = {
   user: undefined,

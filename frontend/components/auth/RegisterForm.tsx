@@ -1,9 +1,9 @@
 import { FormikHelpers } from "formik";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import { registerSchema } from "../../lib/schemas";
 import { IRegisterValues } from "../../lib/types";
 import AuthForm from "./AuthForm";
-import { useModals } from "../contexts/ModalsContext";
+import { useModals } from "../../contexts/ModalsContext";
 
 const RegisterForm = () => {
   const { register } = useAuth();

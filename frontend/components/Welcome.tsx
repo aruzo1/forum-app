@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useModals } from "./contexts/ModalsContext";
+import { useModals } from "../contexts/ModalsContext";
 
 const Welcome = () => {
   const { openModal } = useModals();

@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { AuthProvider } from "../components/contexts/AuthContext";
-import { ModalsProvider } from "../components/contexts/ModalsContext";
+import { AuthProvider } from "../contexts/AuthContext";
+import { ModalsProvider } from "../contexts/ModalsContext";
 import Navbar from "../components/navbar/Navbar";
 
 function Forum({ Component, pageProps }: AppProps) {
