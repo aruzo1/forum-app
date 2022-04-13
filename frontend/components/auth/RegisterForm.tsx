@@ -13,7 +13,7 @@ const RegisterForm = () => {
     data: IRegisterValues,
     { setErrors }: FormikHelpers<IRegisterValues>
   ) => {
-    register!(data)
+    await register!(data)
       .then(() => closeModal!("register"))
       .catch((err) => {
         const errMsg = err.response.errors[0].message;

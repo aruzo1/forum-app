@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useAuth } from "../../contexts/AuthContext";
 import { useModals } from "../../contexts/ModalsContext";
 import Logo from "../../public/logo.svg";
+import Spinner from "../ui/Spinner";
 import Account from "./Account";
 
 const Navbar = () => {
@@ -16,6 +17,7 @@ const Navbar = () => {
             <Logo className="fill-brand-400 hover:fill-brand-300 transition-colors" />
           </a>
         </Link>
+        {user === undefined && <Spinner size={42} />}
         {user && <Account />}
         {user === null && (
           <div className="flex gap-x-4">

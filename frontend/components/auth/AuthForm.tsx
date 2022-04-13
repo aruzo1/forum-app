@@ -2,6 +2,7 @@ import { Form, Formik } from "formik";
 import * as yup from "yup";
 import { IInput } from "../../lib/types";
 import Input from "../ui/Input";
+import Spinner from "../ui/Spinner";
 import SocialButtons from "./SocialButtons";
 
 const AuthForm = (props: {
@@ -19,7 +20,7 @@ const AuthForm = (props: {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {({ errors, touched }) => (
+      {({ errors, touched, isSubmitting }) => (
         <Form className="flex flex-col items-center gap-y-8 w-[25rem] max-w-full card">
           <h1 className="font-extrabold text-5xl text-brand-400">{name}</h1>
           <SocialButtons />
@@ -40,8 +41,15 @@ const AuthForm = (props: {
               />
             ))}
           </div>
-          <button className="btn-brand w-full" type="submit">
-            {name}
+          <button
+            className="btn-brand w-full"
+            type="submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting && (
+              <Spinner size={24} className="!border-t-neutral-900 mx-auto" />
+            )}
+            {!isSubmitting && name}
           </button>
         </Form>
       )}

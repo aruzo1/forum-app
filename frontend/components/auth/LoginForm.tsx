@@ -13,7 +13,7 @@ const LoginForm = () => {
     data: ILoginValues,
     { setErrors }: FormikHelpers<ILoginValues>
   ) => {
-    login!(data)
+    await login!(data)
       .then(() => closeModal!("login"))
       .catch((err) => {
         const errMsg = err.response.errors[0].message;
