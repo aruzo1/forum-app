@@ -33,7 +33,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setUser(res.user);
     });
   };
-  const logout = () => setUser(null);
+  const logout = () => {
+    setUser(null);
+    localStorage.removeItem("token");
+  };
 
   useEffect(() => {
     if (router.isReady) {
