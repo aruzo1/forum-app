@@ -27,13 +27,13 @@ const RegisterForm = () => {
       validationSchema={registerSchema}
       initialValues={{ login: "", email: "", password: "" }}
       inputs={[
-        { label: "Login", placeholder: "Login", name: "login" },
         {
           label: "Email Adress",
           placeholder: "Email",
           name: "email",
           type: "email",
         },
+        { label: "Login", placeholder: "Login", name: "login" },
         {
           label: "Password",
           placeholder: "Password",
