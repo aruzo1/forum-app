@@ -22,7 +22,7 @@ const AuthForm = (props: {
     >
       {({ errors, touched, isSubmitting }) => (
         <Form className="flex flex-col items-center gap-y-8 w-[25rem] max-w-full card">
-          <h1 className="font-extrabold text-5xl text-brand-400">{name}</h1>
+          <h1 className="font-semibold text-5xl text-brand-400">{name}</h1>
           <SocialButtons />
           <div className="text-with-lines text-neutral-200">
             <p className="min-w-max">{name} with email</p>
