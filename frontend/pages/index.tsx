@@ -10,7 +10,7 @@ const HomePage: NextPage<IHomePageProps> = ({ threads, categories }) => {
   return (
     <div className="container layout">
       <Head>
-        <title>Forum | Home</title>
+        <title>Forum - Home</title>
       </Head>
       <Welcome />
       <LatestThreads threads={threads} />

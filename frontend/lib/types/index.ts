@@ -51,6 +51,10 @@ export interface IHomePageProps {
   categories: ICategory[];
 }
 
+export interface ISubCategoryPageProps {
+  subCategory: ISubCategory;
+}
+
 export interface IRegisterValues {
   login: string;
   email: string;
