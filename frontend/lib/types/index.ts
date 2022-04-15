@@ -62,7 +62,7 @@ export interface ILoginValues {
   password: string;
 }
 
-export interface IInput {
+export interface IField {
   label: string;
   placeholder: string;
   name: string;
@@ -70,4 +70,6 @@ export interface IInput {
   touched?: boolean;
   type?: string;
   autoComplete?: string;
+  className?: string;
+  as?: string;
 }

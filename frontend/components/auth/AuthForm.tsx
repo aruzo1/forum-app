@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik";
 import * as yup from "yup";
-import { IInput } from "../../lib/types";
-import Input from "../ui/Input";
+import { IField } from "../../lib/types";
+import Field from "../ui/Field";
 import Spinner from "../ui/Spinner";
 import SocialButtons from "./SocialButtons";
 
@@ -9,7 +9,7 @@ const AuthForm = (props: {
   name: string;
   validationSchema: yup.ObjectSchema<any>;
   initialValues: { [key: string]: string };
-  inputs: IInput[];
+  inputs: IField[];
   onSubmit: (data: any, helpers: any) => Promise<void>;
 }) => {
   const { name, validationSchema, initialValues, inputs, onSubmit } = props;
@@ -22,14 +22,14 @@ const AuthForm = (props: {
     >
       {({ errors, touched, isSubmitting }) => (
         <Form className="flex flex-col items-center gap-y-8 w-[25rem] max-w-full card">
-          <h1 className="font-semibold text-5xl text-brand-400">{name}</h1>
+          <h2 className="font-semibold text-5xl text-brand-400">{name}</h2>
           <SocialButtons />
           <div className="text-with-lines text-neutral-200">
             <p className="min-w-max">{name} with email</p>
           </div>
           <div className="w-full flex flex-col gap-y-4">
             {inputs.map((input) => (
-              <Input
+              <Field
                 key={input.name}
                 label={input.label}
                 placeholder={input.placeholder}
