@@ -7,7 +7,7 @@ import { ApolloServer } from "apollo-server-express";
 import { DataSource } from "typeorm";
 import { buildSchema } from "type-graphql";
 import context from "./context";
-import authChecker from "./authChecker";
+import authChecker from "./auth/authChecker";
 import ouathRouter from "./oauth";
 import { Category, SubCategory, Thread, User } from "./entities";
 import {
@@ -56,7 +56,7 @@ const main = async () => {
   await new Promise<void>((resolve) =>
     httpServer.listen({ port: process.env.PORT }, resolve)
   );
-  console.log(`server ready at http://localhost:4000/graphql`);
+  console.log(`server ready at http://localhost:${process.env.PORT}`);
 };
 
 main();

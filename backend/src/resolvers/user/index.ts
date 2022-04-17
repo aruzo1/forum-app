@@ -1,7 +1,7 @@
 import { UserInputError } from "apollo-server-core";
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from "type-graphql";
 import bcrypt from "bcrypt";
-import generateToken from "../../helpers/generateToken";
+import generateToken from "../../auth/generateToken";
 import { User } from "../../entities";
 import { AuthOutput, LoginInput, RegisterInput } from "./inputs";
 
