@@ -1,11 +1,8 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Avatar from "../../components/ui/Avatar";
-import {
-  fetchSubCategories,
-  fetchSubCategoryPage,
-} from "../../lib/graphql/queries";
+import { fetchSubCategoryPage } from "../../lib/graphql/queries";
 import { ISubCategoryPageProps } from "../../lib/types";
 
 const SubCategoryPage: NextPage<ISubCategoryPageProps> = ({ subCategory }) => {
@@ -46,15 +43,9 @@ const SubCategoryPage: NextPage<ISubCategoryPageProps> = ({ subCategory }) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const subCategories = await fetchSubCategories();
-  const paths = subCategories.map(({ id }) => ({ params: { id } }));
-
-  return { paths, fallback: "blocking" };
-};
-
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const id = ctx.params!.id as string;
+  if (!id) return { notFound: true };
 
   try {
     return { props: await fetchSubCategoryPage(id) };
