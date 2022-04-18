@@ -41,7 +41,7 @@ export const ModalsProvider = ({ children }: { children: ReactNode }) => {
     <ModalsContext.Provider value={{ modals, openModal, closeModal }}>
       <Fade show={!Object.values(modals).every((m) => !m)}>
         <div
-          className="z-10 fixed flex items-start justify-center w-full h-screen py-16 px-4 overflow-y-auto bg-neutral-900/50"
+          className="z-10 fixed flex items-start justify-center w-full h-full py-16 px-4 overflow-y-auto bg-neutral-900/50"
           onClick={() => setModals(initialValues.modals)}
         >
           <div className="max-w-full" onClick={(e) => e.stopPropagation()}>
