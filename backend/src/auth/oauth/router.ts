@@ -1,8 +1,8 @@
 import { Router } from "express";
 import url from "url";
-import { User } from "../entities";
-import generateToken from "../auth/generateToken";
-import ProviderUser from "./providerUser";
+import { User } from "../../entities";
+import generateToken from "../generateToken";
+import ProviderUser from "./ProviderUser";
 
 const router = Router();
 
@@ -20,7 +20,7 @@ router.get("/:provider", async (req, res) => {
 
   try {
     const providerUser = await new ProviderUser(code, uri)[provider]();
-    if (!providerUser.email) return res.sendStatus(400);
+    if (!providerUser.email) return res.sendStatus(401);
 
     let user = await User.findOneBy({ email: providerUser.email });
     if (!user) {

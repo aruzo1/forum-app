@@ -8,7 +8,7 @@ import { DataSource } from "typeorm";
 import { buildSchema } from "type-graphql";
 import context from "./context";
 import authChecker from "./auth/authChecker";
-import ouathRouter from "./oauth";
+import ouathRouter from "./auth/oauth/router";
 import { Category, SubCategory, Thread, User } from "./entities";
 import {
   CategoryResolver,
