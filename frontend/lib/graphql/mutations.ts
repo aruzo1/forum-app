@@ -15,7 +15,7 @@ const LOGIN = gql`
   }
 `;
 
-export const fetchLogin = async (
+export const mutateLogin = async (
   data: ILoginValues
 ): Promise<{ token: string; user: IUser }> => {
   return client.request(LOGIN, { data }).then((res) => res.login);
@@ -34,7 +34,7 @@ const REGISTER = gql`
   }
 `;
 
-export const fetchRegister = async (
+export const mutateRegister = async (
   data: IRegisterValues
 ): Promise<{ token: string; user: IUser }> => {
   return client.request(REGISTER, { data }).then((res) => res.register);

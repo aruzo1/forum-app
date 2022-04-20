@@ -2,6 +2,7 @@ import { UserInputError } from "apollo-server-core";
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from "type-graphql";
 import bcrypt from "bcrypt";
 import generateToken from "../../auth/generateToken";
+import { IContext } from "../../types";
 import { User } from "../../entities";
 import { AuthOutput, LoginInput, RegisterInput } from "./inputs";
 
@@ -43,7 +44,7 @@ export default class UserResolver {
 
   @Query(() => User)
   @Authorized()
-  account(@Ctx() ctx: Context) {
+  account(@Ctx() ctx: IContext) {
     return User.findOneBy({ id: ctx.user!.id });
   }
 }

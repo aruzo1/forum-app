@@ -8,7 +8,6 @@
   @apply fixed z-[1001] top-0 left-0 w-full h-[2px] bg-brand-400;
 }
 
-
 @layer base {
   body {
     @apply overflow-y-hidden text-white bg-neutral-900;
@@ -60,5 +59,8 @@
   }
   .field {
     @apply p-2 rounded-lg border border-neutral-700 bg-neutral-900 outline-none focus:border-brand-400 placeholder:text-neutral-500 transition-colors;
+  }
+  .link {
+    @apply font-medium text-brand-400 hover:text-brand-300 transition-colors;
   }
 }
