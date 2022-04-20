@@ -4,7 +4,7 @@ import Fade from "../animations/Fade";
 import ArrowDown from "../../public/icons/arrowDown.svg";
 import Avatar from "../ui/Avatar";
 
-const Account = () => {
+const AccountMenu = () => {
   const { user, logout } = useAuth();
 
   return (
@@ -27,4 +27,4 @@ const Account = () => {
   );
 };
 
-export default Account;
+export default AccountMenu;

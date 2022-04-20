@@ -3,7 +3,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { useModals } from "../../contexts/ModalsContext";
 import Logo from "../../public/logo.svg";
 import Spinner from "../ui/Spinner";
-import Account from "./Account";
+import AccountMenu from "./AccountMenu";
 
 const Navbar = () => {
   const { user } = useAuth();
@@ -18,7 +18,7 @@ const Navbar = () => {
           </a>
         </Link>
         {user === undefined && <Spinner size={42} />}
-        {user && <Account />}
+        {user && <AccountMenu />}
         {user === null && (
           <div className="flex gap-x-4">
             <button className="btn-border" onClick={() => openModal!("login")}>
