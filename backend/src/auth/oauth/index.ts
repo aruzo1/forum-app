@@ -20,8 +20,10 @@ router.get("/:provider", async (req, res) => {
 
   try {
     const providerUser = await new ProviderUser(code, uri)[provider]();
+    console.log("1")
+    console.log(providerUser)
     if (!providerUser.email) return res.sendStatus(401);
-
+    console.log("3")
     let user = await User.findOneBy({ email: providerUser.email });
     if (!user) {
       user = await User.create({
@@ -38,6 +40,7 @@ router.get("/:provider", async (req, res) => {
       })
     );
   } catch (err) {
+    console.log("2")
     res.sendStatus(401);
   }
 });
