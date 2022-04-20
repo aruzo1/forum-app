@@ -1,8 +1,8 @@
-interface JwtUser {
+export interface IJwtUser {
   id: string;
   iat: number;
 }
 
-interface Context {
-  user?: JwtUser | null;
+export interface IContext {
+  user?: IJwtUser | null;
 }

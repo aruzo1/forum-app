@@ -11,7 +11,7 @@ const LatestThreads = ({ threads }: { threads: IThread[] }) => {
           <Avatar user={thread.user!} size={42} />
           <div className="w-[calc(100%-56px)]">
             <Link key={thread.id} href={`/thread/${thread.id}`}>
-              <a className="block truncate font-medium text-brand-400 hover:text-brand-300 transition-colors">
+              <a className="block truncate link">
                 {thread.title}
               </a>
             </Link>

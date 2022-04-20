@@ -1,6 +1,7 @@
 import { AuthChecker } from "type-graphql";
+import { IContext } from "../types";
 
-const authChecker: AuthChecker<Context> = ({ context }) => {
+const authChecker: AuthChecker<IContext> = ({ context }) => {
   if (!context.user) return false;
   return true;
 };

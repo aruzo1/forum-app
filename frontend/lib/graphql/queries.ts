@@ -27,7 +27,7 @@ const HOME_PAGE = gql`
   }
 `;
 
-export const fetchHomePage = async (): Promise<IHomePageProps> => {
+export const queryHomePage = async (): Promise<IHomePageProps> => {
   return client.request(HOME_PAGE);
 };
 
@@ -41,7 +41,7 @@ const ACCOUNT = gql`
   }
 `;
 
-export const fetchAccount = async (): Promise<IUser> => {
+export const queryAccount = async (): Promise<IUser> => {
   return client.request(ACCOUNT).then((res) => res.account);
 };
 
@@ -62,7 +62,7 @@ const SUB_CATEGORY_PAGE = gql`
   }
 `;
 
-export const fetchSubCategoryPage = async (
+export const querySubCategoryPage = async (
   id: string
 ): Promise<ISubCategoryPageProps> => {
   return client.request(SUB_CATEGORY_PAGE, { id });

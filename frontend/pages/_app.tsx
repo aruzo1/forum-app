@@ -10,15 +10,13 @@ Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
-const Forum = ({ Component, pageProps }: AppProps) => {
-  return (
-    <AuthProvider>
-      <ModalsProvider>
-        <Navbar />
-        <Component {...pageProps} />
-      </ModalsProvider>
-    </AuthProvider>
-  );
-};
+const Forum = ({ Component, pageProps }: AppProps) => (
+  <AuthProvider>
+    <ModalsProvider>
+      <Navbar />
+      <Component {...pageProps} />
+    </ModalsProvider>
+  </AuthProvider>
+);
 
 export default Forum;

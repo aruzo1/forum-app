@@ -8,7 +8,7 @@ import { DataSource } from "typeorm";
 import { buildSchema } from "type-graphql";
 import context from "./context";
 import authChecker from "./auth/authChecker";
-import ouathRouter from "./auth/oauth/router";
+import ouathRouter from "./auth/oauth";
 import { Category, SubCategory, Thread, User } from "./entities";
 import {
   CategoryResolver,
@@ -56,7 +56,7 @@ const main = async () => {
   await new Promise<void>((resolve) =>
     httpServer.listen({ port: process.env.PORT }, resolve)
   );
-  console.log(`server ready at http://localhost:${process.env.PORT}`);
+  console.log(`server ready at ${process.env.BACKEND_URL}:${process.env.PORT}`);
 };
 
 main();

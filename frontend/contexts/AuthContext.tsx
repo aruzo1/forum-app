@@ -8,8 +8,8 @@ import {
 import { useRouter } from "next/router";
 import client from "../lib/graphql/client";
 import { IAuthContext, ILoginValues, IRegisterValues } from "../lib/types";
-import { fetchAccount } from "../lib/graphql/queries";
-import { fetchLogin, fetchRegister } from "../lib/graphql/mutations";
+import { queryAccount } from "../lib/graphql/queries";
+import { mutateLogin, mutateRegister } from "../lib/graphql/mutations";
 
 const initialValues: IAuthContext = {
   user: undefined,
@@ -22,13 +22,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const router = useRouter();
 
   const register = async (data: IRegisterValues) => {
-    return fetchRegister(data).then((res) => {
+    return mutateRegister(data).then((res) => {
       localStorage.setItem("token", res.token);
       setUser(res.user);
     });
   };
   const login = async (data: ILoginValues) => {
-    return fetchLogin(data).then((res) => {
+    return mutateLogin(data).then((res) => {
       localStorage.setItem("token", res.token);
       setUser(res.user);
     });
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       if (!token) return setUser(null);
 
       client.setHeader("Authorization", token);
-      fetchAccount()
+      queryAccount()
         .then((account) => setUser(account))
         .catch(() => {
           setUser(null);

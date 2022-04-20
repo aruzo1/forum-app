@@ -7,9 +7,9 @@ import ProviderUser from "./ProviderUser";
 const router = Router();
 
 router.get("/:provider", async (req, res) => {
-  const uri = req.protocol + "://" + req.get("Host") + req.baseUrl + req.path;
-  const provider = req.params.provider;
   const code = req.query.code as string;
+  const provider = req.params.provider;
+  const uri = `${process.env.BACKEND_URL}:${process.env.PORT}/oauth/${provider}`;
 
   if (
     !code ||
@@ -38,6 +38,7 @@ router.get("/:provider", async (req, res) => {
       })
     );
   } catch (err) {
+    console.log(uri);
     res.sendStatus(401);
   }
 });
