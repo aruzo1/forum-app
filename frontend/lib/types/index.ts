@@ -51,6 +51,10 @@ export interface IHomePageProps {
   categories: ICategory[];
 }
 
+export interface IErrorPageProps {
+  statusCode: number;
+}
+
 export interface ISubCategoryPageProps {
   subCategory: ISubCategory;
 }
