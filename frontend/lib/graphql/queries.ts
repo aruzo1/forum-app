@@ -1,8 +1,6 @@
-import { gql } from "graphql-request";
-import { IHomePageProps, ISubCategoryPageProps, IUser } from "../types";
-import client from "./client";
+import { gql } from "@apollo/client";
 
-const HOME_PAGE = gql`
+export const HOME_PAGE = gql`
   {
     threads(limit: 3) {
       id
@@ -27,11 +25,7 @@ const HOME_PAGE = gql`
   }
 `;
 
-export const queryHomePage = async (): Promise<IHomePageProps> => {
-  return client.request(HOME_PAGE);
-};
-
-const ACCOUNT = gql`
+export const ACCOUNT = gql`
   {
     account {
       id
@@ -41,11 +35,7 @@ const ACCOUNT = gql`
   }
 `;
 
-export const queryAccount = async (): Promise<IUser> => {
-  return client.request(ACCOUNT).then((res) => res.account);
-};
-
-const SUB_CATEGORY_PAGE = gql`
+export const SUB_CATEGORY_PAGE = gql`
   query ($id: String!) {
     subCategory(id: $id) {
       name
@@ -61,9 +51,3 @@ const SUB_CATEGORY_PAGE = gql`
     }
   }
 `;
-
-export const querySubCategoryPage = async (
-  id: string
-): Promise<ISubCategoryPageProps> => {
-  return client.request(SUB_CATEGORY_PAGE, { id });
-};

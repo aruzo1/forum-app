@@ -7,21 +7,18 @@ export type IUser =
     }
   | undefined
   | null;
-
 export interface ICategory {
   id?: string;
   name?: string;
   description?: string;
   subCategories?: ISubCategory[];
 }
-
 export interface ISubCategory {
   id?: string;
   name?: string;
   threads?: IThread[];
   threadsCount?: number;
 }
-
 export interface IThread {
   id?: string;
   title?: string;
@@ -36,7 +33,6 @@ export interface IAuthContext {
   login?: (data: ILoginValues) => Promise<void>;
   logout?: () => void;
 }
-
 export interface IModalsContext {
   modals: {
     login: boolean;
@@ -46,15 +42,13 @@ export interface IModalsContext {
   closeModal?: (name: string) => void;
 }
 
+export interface IErrorPageProps {
+  statusCode: number;
+}
 export interface IHomePageProps {
   threads: IThread[];
   categories: ICategory[];
 }
-
-export interface IErrorPageProps {
-  statusCode: number;
-}
-
 export interface ISubCategoryPageProps {
   subCategory: ISubCategory;
 }
@@ -64,7 +58,6 @@ export interface IRegisterValues {
   email: string;
   password: string;
 }
-
 export interface ILoginValues {
   email: string;
   password: string;

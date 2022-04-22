@@ -1,8 +1,9 @@
 import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
-import SubCategory from "../../components/SubCategory";
-import { querySubCategoryPage } from "../../lib/graphql/queries";
+import client from "../../lib/graphql/client";
 import { ISubCategoryPageProps } from "../../lib/types";
+import { SUB_CATEGORY_PAGE } from "../../lib/graphql/queries";
+import SubCategory from "../../components/SubCategory";
 
 const SubCategoryPage: NextPage<ISubCategoryPageProps> = ({ subCategory }) => (
   <div className="container layout">
@@ -18,7 +19,12 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   if (!id) return { notFound: true };
 
   try {
-    return { props: await querySubCategoryPage(id) };
+    const { data } = await client.query({
+      query: SUB_CATEGORY_PAGE,
+      variables: { id },
+    });
+
+    return { props: data };
   } catch {
     return { notFound: true };
   }

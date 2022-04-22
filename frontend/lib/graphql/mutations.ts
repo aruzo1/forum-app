@@ -1,8 +1,6 @@
-import { gql } from "graphql-request";
-import { ILoginValues, IRegisterValues, IUser } from "../types";
-import client from "./client";
+import { gql } from "@apollo/client";
 
-const LOGIN = gql`
+export const LOGIN = gql`
   mutation ($data: LoginInput!) {
     login(loginInput: $data) {
       token
@@ -15,13 +13,7 @@ const LOGIN = gql`
   }
 `;
 
-export const mutateLogin = async (
-  data: ILoginValues
-): Promise<{ token: string; user: IUser }> => {
-  return client.request(LOGIN, { data }).then((res) => res.login);
-};
-
-const REGISTER = gql`
+export const REGISTER = gql`
   mutation ($data: RegisterInput!) {
     register(registerInput: $data) {
       token
@@ -33,9 +25,3 @@ const REGISTER = gql`
     }
   }
 `;
-
-export const mutateRegister = async (
-  data: IRegisterValues
-): Promise<{ token: string; user: IUser }> => {
-  return client.request(REGISTER, { data }).then((res) => res.register);
-};
