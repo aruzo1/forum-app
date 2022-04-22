@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useModals } from "../contexts/ModalsContext";
 
 const Welcome = () => {
-  const { openModal } = useModals();
+  const { openModal } = useModals()!;
 
   return (
     <div className="col-span-full lg:col-span-7 flex card p-0">
@@ -18,7 +18,7 @@ const Welcome = () => {
           industry. Lorem Ipsum has been the industry&#39;s standard dummy text
           ever since the 1500s.
         </p>
-        <button className="btn-brand" onClick={() => openModal!("register")}>
+        <button className="btn-brand" onClick={() => openModal("register")}>
           Join now!
         </button>
       </div>

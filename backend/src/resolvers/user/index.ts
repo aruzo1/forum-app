@@ -5,40 +5,12 @@ import generateToken from "../../auth/generateToken";
 import { IContext } from "../../types";
 import { User } from "../../entities";
 import { AuthOutput, LoginInput, RegisterInput } from "./inputs";
+import entityValidator from "../../validators/entityValidator";
 
 @Resolver()
 export default class UserResolver {
-  @Mutation(() => AuthOutput)
-  async login(@Arg("loginInput") input: LoginInput) {
-    const user = await User.findOneBy({ email: input.email });
-
-    if (
-      !user?.password ||
-      !input.password ||
-      !(await bcrypt.compare(input.password, user.password))
-    ) {
-      throw new UserInputError("Invalid Credentials");
-    }
-
-    return { token: generateToken(user.id), user };
-  }
-
-  @Mutation(() => AuthOutput)
-  async register(@Arg("registerInput") input: RegisterInput) {
-    const oldUser = await User.findOneBy({ email: input.email });
-    if (oldUser) throw new UserInputError("User Exists");
-
-    const encryptedPassword = await bcrypt.hash(input.password, 10);
-    const user = await User.create({
-      ...input,
-      password: encryptedPassword,
-    }).save();
-
-    return { token: generateToken(user.id), user };
-  }
-
   @Query(() => User)
-  user(@Arg("userId") id: string) {
+  user(@Arg("id") id: string) {
     return User.findOneBy({ id });
   }
 
@@ -46,5 +18,44 @@ export default class UserResolver {
   @Authorized()
   account(@Ctx() ctx: IContext) {
     return User.findOneBy({ id: ctx.user!.id });
+  }
+
+  @Mutation(() => AuthOutput)
+  async login(@Arg("data") data: LoginInput) {
+    const user = await User.findOneBy({ email: data.email });
+
+    if (
+      !user?.password ||
+      !data.password ||
+      !(await bcrypt.compare(data.password, user.password))
+    ) {
+      throw new UserInputError("Invalid Credentials", {
+        errors: {
+          email: "Invalid credentials",
+          password: "Invalid Credentials",
+        },
+      });
+    }
+
+    return { token: generateToken(user.id), user };
+  }
+
+  @Mutation(() => AuthOutput)
+  async register(@Arg("data") data: RegisterInput) {
+    const oldUser = await User.findOneBy({ email: data.email });
+    if (oldUser) {
+      throw new UserInputError("Email Exists", {
+        errors: { email: "User with this email exists" },
+      });
+    }
+
+    const encryptedPassword = await bcrypt.hash(data.password, 10);
+    const user = User.create({ ...data, password: encryptedPassword });
+
+    const errors = await entityValidator(user);
+    if (errors) throw new UserInputError("Input Error", { errors });
+
+    await user.save();
+    return { token: generateToken(user.id), user };
   }
 }

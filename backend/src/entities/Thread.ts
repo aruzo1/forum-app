@@ -8,6 +8,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
+import { Length } from "class-validator";
 import SubCategory from "./SubCategory";
 import User from "./User";
 
@@ -26,10 +27,12 @@ export default class Thread extends BaseEntity {
 
   @Field()
   @Column()
+  @Length(10, 255)
   title: string;
 
   @Field()
   @Column()
+  @Length(30, 255)
   body: string;
 
   @Field()

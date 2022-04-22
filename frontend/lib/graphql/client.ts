@@ -1,29 +1,21 @@
-import {
-  ApolloClient,
-  HttpLink,
-  ApolloLink,
-  InMemoryCache,
-  concat,
-} from "@apollo/client";
+import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 
-const httpLink = new HttpLink({
+const httpLink = createHttpLink({
   uri: process.env.NEXT_PUBLIC_BACKEND_URL + "/graphql",
 });
 
-const authMiddleware = new ApolloLink((operation, forward) => {
-  // Add the authorization to the headers
+const authLink = setContext(() => {
+  // Beacuse of Next.js localStorage is not defined at the start
   try {
-    operation.setContext(() => ({
-      headers: {
-        authorization: localStorage.getItem("token") || null,
-      },
-    }));
+    const token = localStorage.getItem("token");
+    return { headers: { authorization: token || "" } };
   } catch {}
-
-  return forward(operation);
 });
 
-export default new ApolloClient({
-  link: concat(authMiddleware, httpLink),
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
+
+export default client;

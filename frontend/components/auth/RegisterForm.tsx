@@ -1,50 +1,28 @@
-import { FormikHelpers } from "formik";
-import { useAuth } from "../../contexts/AuthContext";
 import { registerSchema } from "../../lib/schemas";
-import { IRegisterValues } from "../../lib/types";
 import AuthForm from "./AuthForm";
-import { useModals } from "../../contexts/ModalsContext";
 
-const RegisterForm = () => {
-  const { register } = useAuth();
-  const { closeModal } = useModals();
-
-  const submitHandler = async (
-    data: IRegisterValues,
-    { setErrors }: FormikHelpers<IRegisterValues>
-  ) => {
-    await register!(data)
-      .then(() => closeModal!("register"))
-      .catch((err) => {
-        const errMsg = err.response.errors[0].message;
-        setErrors({ email: errMsg });
-      });
-  };
-
-  return (
-    <AuthForm
-      name="Sign up"
-      validationSchema={registerSchema}
-      initialValues={{ login: "", email: "", password: "" }}
-      inputs={[
-        {
-          label: "Email Adress",
-          placeholder: "Email",
-          name: "email",
-          type: "email",
-        },
-        { label: "Login", placeholder: "Login", name: "login" },
-        {
-          label: "Password",
-          placeholder: "Password",
-          name: "password",
-          type: "password",
-          autoComplete: "on",
-        },
-      ]}
-      onSubmit={submitHandler}
-    />
-  );
-};
+const RegisterForm = () => (
+  <AuthForm
+    name="Sign up"
+    validationSchema={registerSchema}
+    initialValues={{ login: "", email: "", password: "" }}
+    inputs={[
+      {
+        label: "Email Adress",
+        placeholder: "Email",
+        name: "email",
+        type: "email",
+      },
+      { label: "Login", placeholder: "Login", name: "login" },
+      {
+        label: "Password",
+        placeholder: "Password",
+        name: "password",
+        type: "password",
+        autoComplete: "on",
+      },
+    ]}
+  />
+);
 
 export default RegisterForm;

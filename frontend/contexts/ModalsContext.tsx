@@ -10,30 +10,26 @@ import Fade from "../components/animations/Fade";
 import LoginForm from "../components/auth/LoginForm";
 import RegisterForm from "../components/auth/RegisterForm";
 
-const initialValues: IModalsContext = {
-  modals: {
-    login: false,
-    register: false,
-  },
-};
+const initialValues = { login: false, register: false };
 
-const ModalsContext = createContext(initialValues);
+const ModalsContext = createContext<IModalsContext | undefined>(undefined);
 
 export const ModalsProvider = ({ children }: { children: ReactNode }) => {
-  const [modals, setModals] = useState(initialValues.modals);
+  const [modals, setModals] = useState(initialValues);
 
   const openModal = (name: string) => {
-    setModals((prev) => ({ ...prev, [name]: true }));
+    setModals({ ...modals, [name]: true });
   };
   const closeModal = (name: string) => {
-    setModals((prev) => ({ ...prev, [name]: false }));
+    setModals({ ...modals, [name]: false });
   };
 
   useEffect(() => {
-    if (Object.values(modals).every((m) => !m)) {
-      document.body.style.overflowY = "auto";
-    } else {
+    // If any modal is opened hide document.body scrollbar
+    if (!Object.values(modals).every((m) => !m)) {
       document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
     }
   }, [modals]);
 
@@ -42,7 +38,7 @@ export const ModalsProvider = ({ children }: { children: ReactNode }) => {
       <Fade show={!Object.values(modals).every((m) => !m)}>
         <div
           className="z-10 fixed flex items-start justify-center w-full h-full py-16 px-4 overflow-y-auto bg-neutral-900/50"
-          onClick={() => setModals(initialValues.modals)}
+          onClick={() => setModals(initialValues)}
         >
           <div className="max-w-full" onClick={(e) => e.stopPropagation()}>
             {modals.login && <LoginForm />}

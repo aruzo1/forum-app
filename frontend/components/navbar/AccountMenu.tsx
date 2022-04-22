@@ -5,7 +5,7 @@ import ArrowDown from "../../public/icons/arrowDown.svg";
 import Avatar from "../ui/Avatar";
 
 const AccountMenu = () => {
-  const { user, logout } = useAuth();
+  const { user, logout } = useAuth()!;
 
   return (
     <div className="flex items-center gap-x-2">

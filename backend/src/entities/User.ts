@@ -7,6 +7,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
+import { Length, IsEmail, IsUrl, IsOptional } from "class-validator";
 import Thread from "./Thread";
 
 @ObjectType()
@@ -18,16 +19,22 @@ export default class User extends BaseEntity {
 
   @Field()
   @Column({ default: "unnamed" })
+  @Length(2, 39)
   login: string;
 
   @Column({ unique: true })
+  @IsEmail()
   email: string;
 
   @Column({ nullable: true })
+  @IsOptional()
+  @Length(8, 255)
   password: string;
 
   @Field({ nullable: true })
   @Column({ nullable: true })
+  @IsOptional()
+  @IsUrl()
   avatarUrl: string;
 
   @Field()

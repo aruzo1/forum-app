@@ -10,7 +10,7 @@
 
 @layer base {
   body {
-    @apply overflow-y-hidden text-white bg-neutral-900;
+    @apply text-white bg-neutral-900;
     font-family: Montserrat, sans;
   }
   ::selection {

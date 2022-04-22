@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export type IUser =
   | {
       id?: string;
@@ -29,17 +31,13 @@ export interface IThread {
 
 export interface IAuthContext {
   user: IUser;
-  register?: (data: IRegisterValues) => Promise<void>;
-  login?: (data: ILoginValues) => Promise<void>;
-  logout?: () => void;
+  setUser: Dispatch<SetStateAction<IUser>>;
+  logout: () => void;
 }
 export interface IModalsContext {
-  modals: {
-    login: boolean;
-    register: boolean;
-  };
-  openModal?: (name: string) => void;
-  closeModal?: (name: string) => void;
+  modals: { login: boolean; register: boolean };
+  openModal: (name: string) => void;
+  closeModal: (name: string) => void;
 }
 
 export interface IErrorPageProps {

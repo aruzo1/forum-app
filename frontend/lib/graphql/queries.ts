@@ -25,16 +25,6 @@ export const HOME_PAGE = gql`
   }
 `;
 
-export const ACCOUNT = gql`
-  {
-    account {
-      id
-      login
-      avatarUrl
-    }
-  }
-`;
-
 export const SUB_CATEGORY_PAGE = gql`
   query ($id: String!) {
     subCategory(id: $id) {
@@ -48,6 +38,16 @@ export const SUB_CATEGORY_PAGE = gql`
           avatarUrl
         }
       }
+    }
+  }
+`;
+
+export const ACCOUNT = gql`
+  {
+    account {
+      id
+      login
+      avatarUrl
     }
   }
 `;

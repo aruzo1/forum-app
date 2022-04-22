@@ -38,7 +38,7 @@ router.get("/:provider", async (req, res) => {
       })
     );
   } catch (err) {
-    console.log(uri);
+    console.log(err);
     res.sendStatus(401);
   }
 });

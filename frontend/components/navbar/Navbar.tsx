@@ -6,8 +6,8 @@ import Spinner from "../ui/Spinner";
 import AccountMenu from "./AccountMenu";
 
 const Navbar = () => {
-  const { user } = useAuth();
-  const { openModal } = useModals();
+  const { user } = useAuth()!;
+  const { openModal } = useModals()!;
 
   return (
     <nav className="bg-neutral-800 border-b border-neutral-700">
@@ -21,12 +21,12 @@ const Navbar = () => {
         {user && <AccountMenu />}
         {user === null && (
           <div className="flex gap-x-4">
-            <button className="btn-border" onClick={() => openModal!("login")}>
+            <button className="btn-border" onClick={() => openModal("login")}>
               Login
             </button>
             <button
               className="btn-brand"
-              onClick={() => openModal!("register")}
+              onClick={() => openModal("register")}
             >
               Register
             </button>
