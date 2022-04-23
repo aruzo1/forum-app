@@ -42,6 +42,20 @@ export const SUB_CATEGORY_PAGE = gql`
   }
 `;
 
+export const THREAD_PAGE = gql`
+  query ($id: String!) {
+    thread(id: $id) {
+      title
+      body
+      createdAt
+      user {
+        login
+        avatarUrl
+      }
+    }
+  }
+`;
+
 export const ACCOUNT = gql`
   {
     account {

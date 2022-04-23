@@ -50,6 +50,9 @@ export interface IHomePageProps {
 export interface ISubCategoryPageProps {
   subCategory: ISubCategory;
 }
+export interface IThreadPageProps {
+  thread: IThread;
+}
 
 export interface IRegisterValues {
   login: string;

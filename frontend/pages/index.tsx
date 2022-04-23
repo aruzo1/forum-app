@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import client from "../lib/graphql/client";
 import { IHomePageProps } from "../lib/types";
@@ -18,9 +18,9 @@ const HomePage: NextPage<IHomePageProps> = ({ threads, categories }) => (
   </div>
 );
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const { data } = await client.query({ query: HOME_PAGE });
-  return { props: data, revalidate: 10 };
+  return { props: data };
 };
 
 export default HomePage;

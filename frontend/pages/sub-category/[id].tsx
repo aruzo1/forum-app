@@ -16,7 +16,6 @@ const SubCategoryPage: NextPage<ISubCategoryPageProps> = ({ subCategory }) => (
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const id = ctx.params!.id as string;
-  if (!id) return { notFound: true };
 
   try {
     const { data } = await client.query({
