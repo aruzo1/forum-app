@@ -9,7 +9,7 @@ const router = Router();
 router.get("/:provider", async (req, res) => {
   const code = req.query.code as string;
   const provider = req.params.provider;
-  const uri = `${process.env.BACKEND_URL}:${process.env.PORT}/oauth/${provider}`;
+  const uri = `${process.env.BACKEND_URL}/oauth/${provider}`;
 
   if (
     !code ||
@@ -38,7 +38,6 @@ router.get("/:provider", async (req, res) => {
       })
     );
   } catch (err) {
-    console.log(err);
     res.sendStatus(401);
   }
 });

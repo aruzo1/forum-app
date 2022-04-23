@@ -56,7 +56,7 @@ const main = async () => {
   await new Promise<void>((resolve) =>
     httpServer.listen({ port: process.env.PORT }, resolve)
   );
-  console.log(`server ready at ${process.env.BACKEND_URL}:${process.env.PORT}`);
+  console.log(`server ready at ${process.env.BACKEND_URL}`);
 };
 
 main();
