@@ -8,6 +8,11 @@ export default class ThreadResolver {
     return Thread.find({ order: { createdAt: "DESC" }, take: limit });
   }
 
+  @Query(() => Thread)
+  thread(@Arg("id") id: string) {
+    return Thread.findOneBy({ id });
+  }
+
   @FieldResolver(() => User)
   user(@Root() { userId }: Thread) {
     return User.findOneBy({ id: userId });
