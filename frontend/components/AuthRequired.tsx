@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { useAuth } from "contexts/Auth";
-import Error from "components/Error";
+import Error from "./Error";
 
 const AuthRequired = ({ children }: { children: ReactNode }) => {
   const { user } = useAuth()!;
@@ -9,7 +9,7 @@ const AuthRequired = ({ children }: { children: ReactNode }) => {
   if (user === null) {
     return (
       <Error
-        title="Unauthorized"
+        title="Sign in"
         msg="You have to be logged in to access this page."
       />
     );
