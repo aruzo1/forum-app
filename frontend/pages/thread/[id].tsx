@@ -1,9 +1,9 @@
 import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
-import client from "../../lib/graphql/client";
-import { IThreadPageProps } from "../../lib/types";
-import { THREAD_PAGE } from "../../lib/graphql/queries";
-import Thread from "../../components/Thread";
+import client from "lib/graphql/client";
+import { IThreadPageProps } from "lib/types";
+import { THREAD_PAGE } from "lib/graphql/queries";
+import Thread from "components/Thread";
 
 const ThreadPage: NextPage<IThreadPageProps> = ({ thread }) => (
   <>

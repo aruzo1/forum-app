@@ -1,8 +1,8 @@
 import { Menu } from "@headlessui/react";
-import { useAuth } from "../../contexts/Auth";
-import Fade from "../animations/Fade";
-import ArrowDown from "../../public/icons/arrowDown.svg";
-import Avatar from "../ui/Avatar";
+import { useAuth } from "contexts/Auth";
+import Fade from "components/animations/Fade";
+import ArrowDown from "public/icons/arrowDown.svg";
+import Avatar from "components/ui/Avatar";
 
 const AccountMenu = () => {
   const { user, logout } = useAuth()!;

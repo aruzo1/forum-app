@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { useAuth } from "../../contexts/Auth";
-import { useModals } from "../../contexts/Modals";
-import Logo from "../../public/logo.svg";
-import Spinner from "../ui/Spinner";
-import AccountMenu from "./AccountMenu";
+import { useAuth } from "contexts/Auth";
+import { useModals } from "contexts/Modals";
+import Logo from "public/logo.svg";
+import Spinner from "components/ui/Spinner";
+import AccountMenu from "components/navbar/AccountMenu";
 
 const Navbar = () => {
   const { user } = useAuth()!;

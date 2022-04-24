@@ -1,5 +1,5 @@
-import { loginSchema } from "../../lib/schemas";
-import AuthForm from "./AuthForm";
+import { loginSchema } from "lib/schemas";
+import AuthForm from "components/auth/AuthForm";
 
 const LoginForm = () => (
   <AuthForm

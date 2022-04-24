@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ICategory } from "../lib/types";
+import { ICategory } from "lib/types";
 
 const Categories = ({ categories }: { categories: ICategory[] }) => (
   <>

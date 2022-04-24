@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik";
-import AuthRequired from "./AuthRequired";
-import { threadSchema } from "../lib/schemas";
-import Field from "./ui/Field";
+import AuthRequired from "components/AuthRequired";
+import { threadSchema } from "lib/schemas";
+import Field from "components/ui/Field";
 
 const ThreadForm = () => (
   <AuthRequired>

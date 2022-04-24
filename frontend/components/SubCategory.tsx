@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ISubCategory } from "../lib/types";
-import Avatar from "./ui/Avatar";
+import { ISubCategory } from "lib/types";
+import Avatar from "components/ui/Avatar";
 
 const SubCategory = ({ subCategory }: { subCategory: ISubCategory }) => (
   <div className="col-span-full flex flex-col gap-y-8 card">

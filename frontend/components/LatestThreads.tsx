@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { IThread } from "../lib/types";
-import Avatar from "./ui/Avatar";
+import { IThread } from "lib/types";
+import Avatar from "components/ui/Avatar";
 
 const LatestThreads = ({ threads }: { threads: IThread[] }) => (
   <div className="col-span-full lg:col-span-3 card flex flex-col justify-between gap-y-4">

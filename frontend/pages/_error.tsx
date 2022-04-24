@@ -1,7 +1,7 @@
 import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
-import Error from "../components/Error";
-import { IErrorPageProps } from "../lib/types";
+import Error from "components/Error";
+import { IErrorPageProps } from "lib/types";
 
 const ErrorPage: NextPage<IErrorPageProps> = ({ statusCode }) => (
   <>

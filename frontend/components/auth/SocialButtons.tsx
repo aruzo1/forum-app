@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Discord from "../../public/icons/discord.svg";
-import Github from "../../public/icons/github.svg";
-import Twitch from "../../public/icons/twitch.svg";
+import Discord from "public/icons/discord.svg";
+import Github from "public/icons/github.svg";
+import Twitch from "public/icons/twitch.svg";
 
 const buttons = [
   {

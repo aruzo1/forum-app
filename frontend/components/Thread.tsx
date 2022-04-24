@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { IThread } from "../lib/types";
-import Avatar from "./ui/Avatar";
-import Comment from "../public/icons/comment.svg";
-import Heart from "../public/icons/heart.svg";
+import { IThread } from "lib/types";
+import Avatar from "components/ui/Avatar";
+import Comment from "public/icons/comment.svg";
+import Heart from "public/icons/heart.svg";
 
 const Thread = ({ thread }: { thread: IThread }) => (
   <div className="card col-span-full flex flex-col gap-y-4">

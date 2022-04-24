@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import ThreadForm from "../../components/ThreadForm";
+import ThreadForm from "components/ThreadForm";
 
 const CreateThreadPage: NextPage = () => (
   <>

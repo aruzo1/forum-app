@@ -1,5 +1,5 @@
 import { ErrorMessage, Field as FormikField } from "formik";
-import { IField } from "../../lib/types";
+import { IField } from "lib/types";
 
 const Field = (props: IField) => (
   <div className={"flex flex-col gap-y-2 " + props.className}>

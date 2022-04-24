@@ -1,9 +1,9 @@
 import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
-import client from "../../lib/graphql/client";
-import { ISubCategoryPageProps } from "../../lib/types";
-import { SUB_CATEGORY_PAGE } from "../../lib/graphql/queries";
-import SubCategory from "../../components/SubCategory";
+import client from "lib/graphql/client";
+import { ISubCategoryPageProps } from "lib/types";
+import { SUB_CATEGORY_PAGE } from "lib/graphql/queries";
+import SubCategory from "components/SubCategory";
 
 const SubCategoryPage: NextPage<ISubCategoryPageProps> = ({ subCategory }) => (
   <>

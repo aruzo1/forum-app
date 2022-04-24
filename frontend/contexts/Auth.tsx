@@ -6,9 +6,9 @@ import {
   useState,
 } from "react";
 import { useRouter } from "next/router";
-import client from "../lib/graphql/client";
-import { IAuthContext, IUser } from "../lib/types";
-import { ACCOUNT } from "../lib/graphql/queries";
+import client from "lib/graphql/client";
+import { IAuthContext, IUser } from "lib/types";
+import { ACCOUNT } from "lib/graphql/queries";
 
 const AuthContext = createContext<IAuthContext | undefined>(undefined);
 

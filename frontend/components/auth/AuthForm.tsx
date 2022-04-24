@@ -1,13 +1,13 @@
 import { Form, Formik, FormikHelpers } from "formik";
 import * as yup from "yup";
-import { useAuth } from "../../contexts/Auth";
-import { useModals } from "../../contexts/Modals";
-import client from "../../lib/graphql/client";
-import { LOGIN, REGISTER } from "../../lib/graphql/mutations";
-import { IField } from "../../lib/types";
-import Field from "../ui/Field";
-import Spinner from "../ui/Spinner";
-import SocialButtons from "./SocialButtons";
+import { useAuth } from "contexts/Auth";
+import { useModals } from "contexts/Modals";
+import client from "lib/graphql/client";
+import { LOGIN, REGISTER } from "lib/graphql/mutations";
+import { IField } from "lib/types";
+import Field from "components/ui/Field";
+import Spinner from "components/ui/Spinner";
+import SocialButtons from "components/auth/SocialButtons";
 
 const AuthForm = (props: {
   name: string;
