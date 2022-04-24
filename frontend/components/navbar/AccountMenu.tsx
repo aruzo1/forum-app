@@ -1,5 +1,5 @@
 import { Menu } from "@headlessui/react";
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../../contexts/Auth";
 import Fade from "../animations/Fade";
 import ArrowDown from "../../public/icons/arrowDown.svg";
 import Avatar from "../ui/Avatar";

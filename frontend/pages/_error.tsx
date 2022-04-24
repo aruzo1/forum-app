@@ -4,12 +4,15 @@ import Error from "../components/Error";
 import { IErrorPageProps } from "../lib/types";
 
 const ErrorPage: NextPage<IErrorPageProps> = ({ statusCode }) => (
-  <div className="container layout">
+  <>
     <Head>
       <title>Forum - {statusCode}</title>
     </Head>
-    <Error code={statusCode} msg={`An error ${statusCode} occurred.`} />
-  </div>
+    <Error
+      title={statusCode.toString()}
+      msg={`An error ${statusCode} occurred.`}
+    />
+  </>
 );
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {

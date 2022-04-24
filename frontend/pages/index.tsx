@@ -8,14 +8,14 @@ import LatestThreads from "../components/LatestThreads";
 import Categories from "../components/Categories";
 
 const HomePage: NextPage<IHomePageProps> = ({ threads, categories }) => (
-  <div className="container layout">
+  <>
     <Head>
       <title>Forum - Home</title>
     </Head>
     <Welcome />
     <LatestThreads threads={threads} />
     <Categories categories={categories} />
-  </div>
+  </>
 );
 
 export const getServerSideProps: GetServerSideProps = async () => {

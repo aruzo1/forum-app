@@ -6,7 +6,7 @@ const ThreadForm = () => (
   <Formik
     initialValues={{ title: "", body: "" }}
     validationSchema={threadSchema}
-    onSubmit={() => {}}
+    onSubmit={(x) => {console.log(x)}}
   >
     {({ errors, touched }) => (
       <Form className="col-span-full flex flex-col gap-y-4 card">
@@ -26,7 +26,9 @@ const ThreadForm = () => (
           error={errors.body}
           touched={touched.body}
         />
-        <button className="btn-brand">Start new thread</button>
+        <button className="btn-brand" type="submit">
+          Start new thread
+        </button>
       </Form>
     )}
   </Formik>

@@ -3,8 +3,8 @@ import Router from "next/router";
 import { ApolloProvider } from "@apollo/client";
 import NProgress from "nprogress";
 import client from "../lib/graphql/client";
-import { AuthProvider } from "../contexts/AuthContext";
-import { ModalsProvider } from "../contexts/ModalsContext";
+import { AuthProvider } from "../contexts/Auth";
+import { ModalsProvider } from "../contexts/Modals";
 import Navbar from "../components/navbar/Navbar";
 import "../styles/globals.css";
 
@@ -17,7 +17,9 @@ const Forum = ({ Component, pageProps }: AppProps) => (
     <AuthProvider>
       <ModalsProvider>
         <Navbar />
-        <Component {...pageProps} />
+        <div className="container layout">
+          <Component {...pageProps} />
+        </div>
       </ModalsProvider>
     </AuthProvider>
   </ApolloProvider>

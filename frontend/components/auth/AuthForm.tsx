@@ -1,7 +1,7 @@
 import { Form, Formik, FormikHelpers } from "formik";
 import * as yup from "yup";
-import { useAuth } from "../../contexts/AuthContext";
-import { useModals } from "../../contexts/ModalsContext";
+import { useAuth } from "../../contexts/Auth";
+import { useModals } from "../../contexts/Modals";
 import client from "../../lib/graphql/client";
 import { LOGIN, REGISTER } from "../../lib/graphql/mutations";
 import { IField } from "../../lib/types";

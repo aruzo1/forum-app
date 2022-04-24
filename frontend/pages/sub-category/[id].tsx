@@ -6,12 +6,12 @@ import { SUB_CATEGORY_PAGE } from "../../lib/graphql/queries";
 import SubCategory from "../../components/SubCategory";
 
 const SubCategoryPage: NextPage<ISubCategoryPageProps> = ({ subCategory }) => (
-  <div className="container layout">
+  <>
     <Head>
       <title>Forum - {subCategory.name}</title>
     </Head>
     <SubCategory subCategory={subCategory} />
-  </div>
+  </>
 );
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
