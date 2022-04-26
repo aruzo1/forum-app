@@ -18,12 +18,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const id = ctx.params!.id as string;
 
   try {
-    const { data } = await client.query({
-      query: SUB_CATEGORY_PAGE,
-      variables: { id },
-    });
-
-    return { props: data };
+    return { props: await client.request(SUB_CATEGORY_PAGE, { id }) };
   } catch {
     return { notFound: true };
   }

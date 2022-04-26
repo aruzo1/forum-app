@@ -27,14 +27,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const queryToken = router.query.token as string;
       if (queryToken) {
         localStorage.setItem("token", queryToken);
-        // Remove queries from url
+        // Remove token query from url
         router.replace("/", undefined, { shallow: true });
       }
 
-      if (localStorage.getItem("token")) {
+      const token = localStorage.getItem("token");
+      if (token) {
+        client.setHeader("authorization", token);
         client
-          .query({ query: ACCOUNT })
-          .then((res) => setUser(res.data.account))
+          .request(ACCOUNT)
+          .then((res) => setUser(res.account))
           .catch(() => {
             setUser(null);
             localStorage.removeItem("token");

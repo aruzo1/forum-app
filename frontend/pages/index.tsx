@@ -19,8 +19,7 @@ const HomePage: NextPage<IHomePageProps> = ({ threads, categories }) => (
 );
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const { data } = await client.query({ query: HOME_PAGE });
-  return { props: data };
+  return { props: await client.request(HOME_PAGE) };
 };
 
 export default HomePage;

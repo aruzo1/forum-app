@@ -18,12 +18,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const id = params!.id as string;
 
   try {
-    const { data } = await client.query({
-      query: THREAD_PAGE,
-      variables: { id },
-    });
-
-    return { props: data };
+    return { props: await client.request(THREAD_PAGE, { id }) };
   } catch {
     return { notFound: true };
   }

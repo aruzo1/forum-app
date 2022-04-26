@@ -19,12 +19,13 @@ const ThreadForm = ({ subCategory }: { subCategory: ISubCategory }) => {
         validationSchema={threadSchema}
         onSubmit={async (values, { setErrors }) => {
           await client
-            .mutate({
-              mutation: CREATE_THREAD,
-              variables: { data: { ...values, ...router.query } },
+            .request(CREATE_THREAD, {
+              data: { ...values, subCategoryId: subCategory.id },
             })
-            .then(({ data }) => router.push("/thread/" + data?.createThread.id))
-            .catch((err) => setErrors(err.graphQLErrors[0].extensions.errors));
+            .then((res) => router.push(`/thread/${res.createThread.id}`))
+            .catch((err) => {
+              setErrors(err.response.errors[0].extensions.errors);
+            });
         }}
       >
         {({ errors, touched, isSubmitting }) => (
@@ -32,9 +33,9 @@ const ThreadForm = ({ subCategory }: { subCategory: ISubCategory }) => {
             <div className="flex flex-wrap items-center gap-x-2">
               <h1 className="text-3xl font-semibold">Create Thread</h1>
               <p className="text-neutral-200">
-                In{" "}
+                In
                 <Link href={`/sub-category/${subCategory.id}`}>
-                  <a className="link">{subCategory.name}</a>
+                  <a className="link"> {subCategory.name}</a>
                 </Link>
               </p>
             </div>

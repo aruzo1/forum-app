@@ -1,5 +1,5 @@
-import { Form, Formik, FormikHelpers } from "formik";
 import * as yup from "yup";
+import { Form, Formik } from "formik";
 import { useAuth } from "contexts/Auth";
 import { useModals } from "contexts/Modals";
 import client from "lib/graphql/client";
@@ -20,28 +20,23 @@ const AuthForm = (props: {
   const { setUser } = useAuth()!;
   const { closeModal } = useModals()!;
 
-  const submitHandler = async (
-    data: any,
-    { setErrors }: FormikHelpers<any>
-  ) => {
-    await client
-      .mutate({ mutation: login ? LOGIN : REGISTER, variables: { data } })
-      .then(({ data }) => {
-        const actionName = login ? "login" : "register";
-        localStorage.setItem("token", data[actionName].token);
-        setUser(data[actionName].user);
-        closeModal(actionName);
-      })
-      .catch((err) => {
-        setErrors(err.graphQLErrors[0].extensions.errors);
-      });
-  };
-
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={submitHandler}
+      onSubmit={async (values, { setErrors }) => {
+        await client
+          .request(login ? LOGIN : REGISTER, { data: values })
+          .then((res) => {
+            const actionName = login ? "login" : "register";
+            localStorage.setItem("token", res[actionName].token);
+            setUser(res[actionName].user);
+            closeModal(actionName);
+          })
+          .catch((err) => {
+            setErrors(err.response.errors[0].extensions.errors);
+          });
+      }}
     >
       {({ errors, touched, isSubmitting }) => (
         <Form className="flex flex-col items-center gap-y-8 w-[25rem] max-w-full card">

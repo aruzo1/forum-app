@@ -60,17 +60,6 @@ export interface ICreateThreadPageProps {
   subCategory: ISubCategory;
 }
 
-// Forms values
-export interface IRegisterValues {
-  login: string;
-  email: string;
-  password: string;
-}
-export interface ILoginValues {
-  email: string;
-  password: string;
-}
-
 // Others
 export interface IField {
   label: string;

@@ -20,11 +20,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const subCategoryId = params!.subCategoryId as string;
 
   try {
-    const { data } = await client.query({
-      query: SUB_CATEGORY,
-      variables: { subCategoryId },
-    });
-    return { props: data };
+    return { props: await client.request(SUB_CATEGORY, { subCategoryId }) };
   } catch {
     return { notFound: true };
   }
