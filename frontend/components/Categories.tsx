@@ -14,11 +14,11 @@ const Categories = ({ categories }: { categories: ICategory[] }) => (
           {category.subCategories?.map((subCategory) => (
             <Link key={subCategory.id} href={`/sub-category/${subCategory.id}`}>
               <a className="flex justify-between items-center p-2 rounded-lg hover:bg-neutral-700 transition-colors">
-                <h3 className="font-medium text-lg text-brand-400">
+                <h3 className="font-medium text-brand-400">
                   {subCategory.name}
                 </h3>
                 <div className="flex flex-col items-center">
-                  <h4 className="font-medium text-lg text-brand-400">
+                  <h4 className="font-medium text-brand-400">
                     {subCategory.threadsCount}
                   </h4>
                   <p className="text-sm">Threads</p>

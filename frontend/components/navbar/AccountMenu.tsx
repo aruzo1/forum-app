@@ -3,6 +3,7 @@ import { useAuth } from "contexts/Auth";
 import Fade from "components/animations/Fade";
 import ArrowDown from "public/icons/arrowDown.svg";
 import Avatar from "components/ui/Avatar";
+import Link from "next/link";
 
 const AccountMenu = () => {
   const { user, logout } = useAuth()!;
@@ -10,7 +11,9 @@ const AccountMenu = () => {
   return (
     <div className="flex items-center gap-x-2">
       <Avatar user={user} size={42} />
-      <h3 className="font-semibold text-brand-400">{user?.login}</h3>
+      <Link href={`/user/${user?.id}`}>
+        <a className="link">{user?.login}</a>
+      </Link>
       <Menu as="div" className="relative">
         <Menu.Button className="f-center w-[42px] h-[42px] btn-border p-0">
           <ArrowDown />
