@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik";
-import AuthRequired from "components/AuthRequired";
+import AuthRequired from "components/auth/AuthRequired";
 import { threadSchema } from "lib/schemas";
 import Field from "components/ui/Field";
 

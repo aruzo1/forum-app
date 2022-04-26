@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { useAuth } from "contexts/Auth";
-import Error from "./Error";
+import Error from "../Error";
 
 const AuthRequired = ({ children }: { children: ReactNode }) => {
   const { user } = useAuth()!;
