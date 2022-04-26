@@ -6,7 +6,7 @@ import Heart from "public/icons/heart.svg";
 
 const Thread = ({ thread }: { thread: IThread }) => (
   <div className="card col-span-full flex flex-col gap-y-4">
-    <div className="flex items-center gap-x-4">
+    <div className="flex items-center gap-x-2">
       <Avatar user={thread.user} size={48} />
       <p className="text-neutral-200">
         Posted by{" "}

@@ -8,9 +8,7 @@ const Avatar = (props: { user: IUser; size: number; className?: string }) => {
   return (
     <Link href={`/user/${user?.id}`}>
       <a
-        className={
-          "relative hover:brightness-125 transition w-fit h-fit " + className
-        }
+        className={`relative hover:brightness-125 transition w-fit h-fit ${className}`}
         style={{ minWidth: size, minHeight: size }}
       >
         <Image
@@ -18,7 +16,6 @@ const Avatar = (props: { user: IUser; size: number; className?: string }) => {
           alt={`${user?.login} avatar`}
           layout="fill"
           className="rounded-full"
-          quality={100}
         />
       </a>
     </Link>

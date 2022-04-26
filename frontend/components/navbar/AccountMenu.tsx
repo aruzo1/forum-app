@@ -20,7 +20,7 @@ const AccountMenu = () => {
         </Menu.Button>
         <Fade>
           <Menu.Items className="z-10 absolute right-0 flex flex-col w-56 mt-5 card p-2">
-            <button className="btn-border w-full text-center" onClick={logout}>
+            <button className="btn-border w-full" onClick={logout}>
               Logout
             </button>
           </Menu.Items>

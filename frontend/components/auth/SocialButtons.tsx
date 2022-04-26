@@ -25,7 +25,7 @@ const SocialButtons = () => (
   <div className="flex flex-col gap-y-4 w-full">
     {buttons.map(({ name, Icon, href }) => (
       <Link key={name} href={href}>
-        <a key={name} className="btn-border-icon w-full" type="button">
+        <a className="btn-border-icon w-full" type="button">
           <Icon className="fill-brand-400" />
           Sign in with {name}
         </a>

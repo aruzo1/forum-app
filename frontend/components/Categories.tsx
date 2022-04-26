@@ -6,7 +6,7 @@ const Categories = ({ categories }: { categories: ICategory[] }) => (
     {categories.map((category) => (
       <div
         key={category.id}
-        className="card col-span-full flex flex-col gap-y-4"
+        className="col-span-full flex flex-col gap-y-4 card"
       >
         <h2 className="font-semibold text-3xl">{category.name}</h2>
         <p className="text-neutral-200">{category.description}</p>
@@ -18,9 +18,9 @@ const Categories = ({ categories }: { categories: ICategory[] }) => (
                   {subCategory.name}
                 </h3>
                 <div className="flex flex-col items-center">
-                  <h4 className="font-medium text-brand-400">
+                  <strong className="font-medium text-brand-400">
                     {subCategory.threadsCount}
-                  </h4>
+                  </strong>
                   <p className="text-sm">Threads</p>
                 </div>
               </a>
