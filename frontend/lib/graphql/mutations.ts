@@ -25,3 +25,11 @@ export const LOGIN = gql`
     }
   }
 `;
+
+export const CREATE_THREAD = gql`
+  mutation ($data: ThreadInput!) {
+    createThread(data: $data) {
+      id
+    }
+  }
+`;

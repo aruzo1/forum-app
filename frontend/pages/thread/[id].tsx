@@ -14,8 +14,8 @@ const ThreadPage: NextPage<IThreadPageProps> = ({ thread }) => (
   </>
 );
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const id = ctx.params!.id as string;
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  const id = params!.id as string;
 
   try {
     const { data } = await client.query({

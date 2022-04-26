@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 
+// Entities
 export type IUser =
   | {
       id?: string;
@@ -29,6 +30,7 @@ export interface IThread {
   user?: IUser;
 }
 
+// Contexts
 export interface IAuthContext {
   user: IUser;
   setUser: Dispatch<SetStateAction<IUser>>;
@@ -40,6 +42,7 @@ export interface IModalsContext {
   closeModal: (name: string) => void;
 }
 
+// Pages props
 export interface IErrorPageProps {
   statusCode: number;
 }
@@ -53,7 +56,11 @@ export interface ISubCategoryPageProps {
 export interface IThreadPageProps {
   thread: IThread;
 }
+export interface ICreateThreadPageProps {
+  subCategory: ISubCategory;
+}
 
+// Forms values
 export interface IRegisterValues {
   login: string;
   email: string;
@@ -64,6 +71,7 @@ export interface ILoginValues {
   password: string;
 }
 
+// Others
 export interface IField {
   label: string;
   placeholder: string;
