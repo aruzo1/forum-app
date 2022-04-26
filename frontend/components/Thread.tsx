@@ -15,7 +15,7 @@ const Thread = ({ thread }: { thread: IThread }) => (
         </Link>
       </p>
     </div>
-    <h1 className="font-semibold text-5xl text-brand-400">
+    <h1 className="font-semibold text-3xl text-brand-400">
       {thread.title}
     </h1>
     <p>{thread.body}</p>
