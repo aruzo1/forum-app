@@ -29,7 +29,7 @@ export default class UserResolver {
       !data.password ||
       !(await bcrypt.compare(data.password, user.password))
     ) {
-      throw new UserInputError("Invalid Credentials", {
+      throw new UserInputError("INVALID CREDENTIALS", {
         errors: {
           email: "Invalid credentials",
           password: "Invalid Credentials",
@@ -42,20 +42,20 @@ export default class UserResolver {
 
   @Mutation(() => AuthOutput)
   async register(@Arg("data") data: RegisterInput) {
-    const oldUser = await User.findOneBy({ email: data.email });
-    if (oldUser) {
-      throw new UserInputError("Email Exists", {
-        errors: { email: "User with this email exists" },
-      });
-    }
+    await User.findOneBy({ email: data.email }).then((user) => {
+      if (user) {
+        throw new UserInputError("EMAIL EXISTS", {
+          errors: { email: "User with this email exists" },
+        });
+      }
+    });
 
     const encryptedPassword = await bcrypt.hash(data.password, 10);
     const user = User.create({ ...data, password: encryptedPassword });
 
     const errors = await entityValidator(user);
-    if (errors) throw new UserInputError("Input Error", { errors });
+    if (errors) throw new UserInputError("INPUT ERROR", { errors });
 
-    await user.save();
-    return { token: generateToken(user.id), user };
+    return { token: generateToken(user.id), user: user.save() };
   }
 }
