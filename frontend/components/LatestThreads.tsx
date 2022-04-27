@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { IThread } from "lib/types";
 import Avatar from "components/ui/Avatar";
+import timeSince from "lib/helpers/timeSince";
 
 const LatestThreads = ({ threads }: { threads: IThread[] }) => (
   <div className="col-span-full lg:col-span-3 flex flex-col justify-between gap-y-4 card">
@@ -14,7 +15,7 @@ const LatestThreads = ({ threads }: { threads: IThread[] }) => (
           </Link>
           <p className="truncate text-sm">{thread.body}</p>
           <p className="font-light text-sm text-neutral-200">
-            {new Date(thread.createdAt!).toDateString()}
+            {timeSince(thread.createdAt!)}
           </p>
         </div>
       </div>

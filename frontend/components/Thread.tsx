@@ -15,10 +15,10 @@ const Thread = ({ thread }: { thread: IThread }) => (
         </Link>
       </p>
     </div>
-    <h1 className="font-semibold text-3xl text-brand-400">
+    <h1 className="break-words font-semibold text-3xl text-brand-400">
       {thread.title}
     </h1>
-    <p>{thread.body}</p>
+    <p className="break-words">{thread.body}</p>
     <div className="flex gap-x-4">
       <button className="flex items-center gap-x-2 group">
         <Heart className="fill-brand-400 group-hover:fill-brand-300 transition-colors" />
