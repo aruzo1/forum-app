@@ -63,4 +63,7 @@
   .link {
     @apply font-medium text-brand-400 hover:text-brand-300 transition-colors;
   }
+  .title {
+    @apply font-semibold text-3xl;
+  }
 }

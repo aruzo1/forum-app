@@ -5,7 +5,7 @@ import timeSince from "lib/helpers/timeSince";
 
 const LatestThreads = ({ threads }: { threads: IThread[] }) => (
   <div className="col-span-full lg:col-span-3 flex flex-col justify-between gap-y-4 card">
-    <h2 className="font-semibold text-3xl">Latest threads</h2>
+    <h2 className="title">Latest threads</h2>
     {threads.map((thread) => (
       <div key={thread.id} className="flex items-center gap-x-2 rounded-lg">
         <Avatar user={thread.user!} size={42} />

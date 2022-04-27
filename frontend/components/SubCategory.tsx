@@ -5,7 +5,7 @@ import Avatar from "components/ui/Avatar";
 const SubCategory = ({ subCategory }: { subCategory: ISubCategory }) => (
   <div className="col-span-full flex flex-col gap-y-4 card">
     <div className="flex flex-wrap justify-between items-center gap-4">
-      <h1 className="font-semibold text-3xl">{subCategory.name}</h1>
+      <h1 className="title">{subCategory.name}</h1>
       <Link href={`/thread/create/${subCategory.id}`}>
         <a className="btn-brand">Create Thread</a>
       </Link>

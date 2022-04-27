@@ -31,7 +31,7 @@ const ThreadForm = ({ subCategory }: { subCategory: ISubCategory }) => {
         {({ errors, touched, isSubmitting }) => (
           <Form className="col-span-full flex flex-col gap-y-4 card">
             <div className="flex flex-wrap items-center gap-x-2">
-              <h1 className="text-3xl font-semibold">Create Thread</h1>
+              <h1 className="title">Create Thread</h1>
               <p className="text-neutral-200">
                 In
                 <Link href={`/sub-category/${subCategory.id}`}>

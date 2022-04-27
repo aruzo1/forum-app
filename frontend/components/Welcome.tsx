@@ -7,7 +7,7 @@ const Welcome = () => {
   return (
     <div className="col-span-full lg:col-span-7 flex card p-0">
       <div className="flex flex-col gap-y-8 justify-between items-center lg:items-start lg:w-7/12 p-8 text-center lg:text-left">
-        <h1 className="font-semibold text-5xl">
+        <h1 className="title text-5xl">
           Are you ready to{" "}
           <span className="underline decoration-brand-400 text-brand-400">
             join now?
