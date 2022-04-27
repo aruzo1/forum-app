@@ -38,7 +38,7 @@ export default class User extends BaseEntity {
   avatarUrl: string;
 
   @Field()
-  @CreateDateColumn({ default: "NOW()" })
+  @CreateDateColumn({ type: "timestamptz" })
   createdAt: Date;
 
   @OneToMany(() => Thread, (thread) => thread.user)

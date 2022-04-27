@@ -36,7 +36,7 @@ export default class Thread extends BaseEntity {
   body: string;
 
   @Field()
-  @CreateDateColumn({ default: "NOW()" })
+  @CreateDateColumn({ type: "timestamptz" })
   createdAt: Date;
 
   @ManyToOne(() => SubCategory, (subCategory) => subCategory.threads, {
