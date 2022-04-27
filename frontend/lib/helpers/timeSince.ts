@@ -15,5 +15,5 @@ export default (date: string) => {
   if (interval >= 1) return getMsg("hours");
   interval = seconds / 60;
   if (interval >= 1) return getMsg("minutes");
-  return `${Math.floor(seconds)} seconds ago`;
+  return getMsg("seconds");
 };
