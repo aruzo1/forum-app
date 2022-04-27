@@ -42,21 +42,24 @@ export interface IModalsContext {
   closeModal: (name: string) => void;
 }
 
-// Pages props
-export interface IErrorPageProps {
-  statusCode: number;
-}
-export interface IHomePageProps {
+// Pages
+export interface IHomeProps {
   threads: IThread[];
   categories: ICategory[];
 }
-export interface ISubCategoryPageProps {
-  subCategory: ISubCategory;
+export interface IErrorProps {
+  statusCode: number;
 }
-export interface IThreadPageProps {
+export interface IUserProps {
+  user: IUser;
+}
+export interface IThreadProps {
   thread: IThread;
 }
-export interface ICreateThreadPageProps {
+export interface IThreadCreateProps {
+  subCategory: ISubCategory;
+}
+export interface ISubCategoryProps {
   subCategory: ISubCategory;
 }
 

@@ -56,6 +56,13 @@ export const THREAD_PAGE = gql`
     }
   }
 `;
+export const USER_PAGE = gql`
+  query ($id: String!) {
+    user(id: $id) {
+      login
+    }
+  }
+`;
 
 // User
 export const ACCOUNT = gql`
