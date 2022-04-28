@@ -61,7 +61,7 @@
     @apply p-2 rounded-lg border border-neutral-700 bg-neutral-900 outline-none focus:border-brand-400 placeholder:text-neutral-500 transition-colors;
   }
   .link {
-    @apply font-medium text-brand-400 hover:text-brand-300 transition-colors;
+    @apply max-w-max font-medium text-brand-400 hover:underline;
   }
   .title {
     @apply font-semibold text-3xl;
