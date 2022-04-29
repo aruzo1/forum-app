@@ -4,8 +4,43 @@
 @tailwind components;
 @tailwind utilities;
 
-#nprogress .bar {
-  @apply fixed z-[1001] top-0 left-0 w-full h-[2px] bg-brand-400;
+@layer utilities {
+  .f-center {
+    @apply flex justify-center items-center;
+  }
+}
+
+@layer components {
+  .layout {
+    @apply grid grid-cols-10 gap-4 py-4;
+  }
+  .card {
+    @apply p-8 rounded-lg drop-shadow-lg border border-neutral-700 bg-neutral-800;
+  }
+  .btn {
+    @apply px-4 py-2 rounded-full font-medium transition-colors;
+  }
+  .btn-border {
+    @apply btn border border-neutral-700 bg-neutral-800 hover:bg-neutral-700 hover:border-neutral-600;
+  }
+  .btn-brand {
+    @apply btn text-neutral-900 bg-brand-400 hover:bg-brand-300;
+  }
+  .btn-border-icon {
+    @apply btn-border f-center gap-x-4;
+  }
+  .title {
+    @apply font-semibold text-3xl;
+  }
+  .link {
+    @apply max-w-max font-medium text-brand-400 hover:underline;
+  }
+  .field {
+    @apply p-2 rounded-lg outline-none border border-neutral-700 bg-neutral-900 focus:border-brand-400 placeholder:text-neutral-500 transition-colors;
+  }
+  .text-with-lines {
+    @apply w-full flex items-center before:w-1/2 before:h-[1px] before:mr-4 before:bg-neutral-300 after:w-1/2 after:h-[1px] after:ml-4 after:bg-neutral-300;
+  }
 }
 
 @layer base {
@@ -32,38 +67,6 @@
   }
 }
 
-@layer utilities {
-  .f-center {
-    @apply flex justify-center items-center;
-  }
-}
-
-@layer components {
-  .layout {
-    @apply grid grid-cols-10 gap-4 py-4;
-  }
-  .card {
-    @apply p-8 rounded-lg drop-shadow-lg border border-neutral-700 bg-neutral-800;
-  }
-  .btn-border {
-    @apply w-fit px-4 py-2 rounded-full font-medium border border-neutral-700 bg-neutral-800 hover:border-neutral-600 hover:bg-neutral-700 transition-colors;
-  }
-  .btn-brand {
-    @apply w-fit px-4 py-2 rounded-full font-medium text-neutral-900 bg-brand-400 hover:bg-brand-300 transition-colors;
-  }
-  .btn-border-icon {
-    @apply flex justify-center gap-x-4 w-fit px-4 py-2 rounded-full font-medium border border-neutral-700 bg-neutral-800 hover:border-neutral-600 hover:bg-neutral-700 transition-colors;
-  }
-  .text-with-lines {
-    @apply w-full flex items-center before:w-1/2 before:h-[1px] before:mr-4 before:bg-neutral-300 after:w-1/2 after:h-[1px] after:ml-4 after:bg-neutral-300;
-  }
-  .field {
-    @apply p-2 rounded-lg border border-neutral-700 bg-neutral-900 outline-none focus:border-brand-400 placeholder:text-neutral-500 transition-colors;
-  }
-  .link {
-    @apply max-w-max font-medium text-brand-400 hover:underline;
-  }
-  .title {
-    @apply font-semibold text-3xl;
-  }
+#nprogress .bar {
+  @apply fixed z-[1001] top-0 left-0 w-full h-[2px] bg-brand-400;
 }
