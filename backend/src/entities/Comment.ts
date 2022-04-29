@@ -6,49 +6,40 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
-  OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Length } from "class-validator";
-import { User, SubCategory, Comment } from "./index";
+import { Thread, User } from "./index";
 
 @ObjectType()
 @Entity()
-export default class Thread extends BaseEntity {
+export default class Comment extends BaseEntity {
   @Field()
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
   @Column("uuid")
-  subCategoryId: string;
+  threadId: string;
 
   @Column("uuid")
   userId: string;
 
   @Field()
   @Column()
-  @Length(10, 255)
-  title: string;
-
-  @Field()
-  @Column()
-  @Length(30, 255)
+  @Length(1, 255)
   body: string;
 
   @Field()
   @CreateDateColumn({ type: "timestamptz" })
   createdAt: Date;
 
-  @ManyToOne(() => SubCategory, (subCategory) => subCategory.threads, {
+  @ManyToOne(() => Thread, (thread) => thread.comments, {
     cascade: true,
   })
   @JoinColumn()
-  subCategory: SubCategory;
+  thread: Thread;
 
-  @ManyToOne(() => User, (user) => user.threads, { cascade: true })
+  @ManyToOne(() => User, (user) => user.comments, { cascade: true })
   @JoinColumn()
   user: User;
-
-  @OneToMany(() => Comment, (comment) => comment.thread)
-  comments: Comment[];
 }

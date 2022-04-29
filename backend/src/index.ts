@@ -9,12 +9,13 @@ import { buildSchema } from "type-graphql";
 import context from "./context";
 import authChecker from "./auth/authChecker";
 import ouathRouter from "./auth/oauth";
-import { Category, SubCategory, Thread, User } from "./entities";
+import { Category, Comment, SubCategory, Thread, User } from "./entities";
 import {
   CategoryResolver,
   SubCategoryResolver,
   ThreadResolver,
   UserResolver,
+  CommentResolver,
 } from "./resolvers";
 
 const main = async () => {
@@ -26,7 +27,7 @@ const main = async () => {
     ssl: true,
     extra: { ssl: { rejectUnauthorized: false } },
     synchronize: true,
-    entities: [User, Category, SubCategory, Thread],
+    entities: [User, Category, SubCategory, Thread, Comment],
   });
   await Database.initialize();
 
@@ -39,6 +40,7 @@ const main = async () => {
         CategoryResolver,
         SubCategoryResolver,
         ThreadResolver,
+        CommentResolver,
       ],
       authChecker,
     }),

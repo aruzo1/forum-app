@@ -12,7 +12,7 @@ import {
 } from "type-graphql";
 import entityValidator from "../../validators/entityValidator";
 import { IContext } from "../../types";
-import { User, Thread, SubCategory } from "../../entities";
+import { User, SubCategory, Thread, Comment } from "../../entities";
 import { ThreadInput } from "./inputs";
 
 @Resolver(() => Thread)
@@ -21,7 +21,7 @@ export default class ThreadResolver {
   threads(@Arg("limit", () => Int, { nullable: true }) limit?: number) {
     return Thread.find({ order: { createdAt: "DESC" }, take: limit });
   }
-
+  
   @Query(() => Thread)
   thread(@Arg("id") id: string) {
     return Thread.findOneBy({ id });
@@ -30,6 +30,11 @@ export default class ThreadResolver {
   @FieldResolver(() => User)
   user(@Root() { userId }: Thread) {
     return User.findOneBy({ id: userId });
+  }
+
+  @FieldResolver(() => [Comment])
+  comments(@Root() { id }: Thread) {
+    return Comment.findBy({ threadId: id });
   }
 
   @Mutation(() => Thread)

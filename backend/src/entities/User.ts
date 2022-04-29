@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Length, IsEmail, IsUrl, IsOptional } from "class-validator";
-import Thread from "./Thread";
+import { Thread, Comment } from "./index";
 
 @ObjectType()
 @Entity()
@@ -43,4 +43,7 @@ export default class User extends BaseEntity {
 
   @OneToMany(() => Thread, (thread) => thread.user)
   threads: Thread[];
+
+  @OneToMany(() => Comment, (comment) => comment.user)
+  comments: Comment[];
 }
