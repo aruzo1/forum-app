@@ -19,9 +19,9 @@ import { ThreadInput } from "./inputs";
 export default class ThreadResolver {
   @Query(() => [Thread])
   threads(@Arg("limit", () => Int, { nullable: true }) limit?: number) {
-    return Thread.find({ order: { createdAt: "DESC" }, take: limit });
+    return Thread.find({ take: limit });
   }
-  
+
   @Query(() => Thread)
   thread(@Arg("id") id: string) {
     return Thread.findOneBy({ id });

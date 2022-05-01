@@ -12,7 +12,7 @@ import { Length } from "class-validator";
 import { Thread, User } from "./index";
 
 @ObjectType()
-@Entity()
+@Entity("comment", { orderBy: { createdAt: "DESC" } })
 export default class Comment extends BaseEntity {
   @Field()
   @PrimaryGeneratedColumn("uuid")
