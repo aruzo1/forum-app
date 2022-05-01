@@ -4,6 +4,7 @@ import client from "lib/graphql/client";
 import { IThreadProps } from "lib/types";
 import { THREAD_PAGE } from "lib/graphql/queries";
 import Thread from "components/Thread";
+import Comments from "components/Comments";
 
 const ThreadPage: NextPage<IThreadProps> = ({ thread }) => (
   <>
@@ -11,6 +12,7 @@ const ThreadPage: NextPage<IThreadProps> = ({ thread }) => (
       <title>Forum - {thread.title}</title>
     </Head>
     <Thread thread={thread} />
+    <Comments comments={thread.comments!} />
   </>
 );
 

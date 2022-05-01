@@ -53,6 +53,16 @@ export const THREAD_PAGE = gql`
         login
         avatarUrl
       }
+      comments {
+        id
+        body
+        createdAt
+        user {
+          id
+          login
+          avatarUrl
+        }
+      }
     }
   }
 `;

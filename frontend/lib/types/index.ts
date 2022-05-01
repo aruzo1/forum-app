@@ -28,6 +28,13 @@ export interface IThread {
   body?: string;
   createdAt?: string;
   user?: IUser;
+  comments?: IComment[];
+}
+export interface IComment {
+  id?: string;
+  body?: string;
+  createdAt?: string;
+  user?: IUser;
 }
 
 // Contexts
