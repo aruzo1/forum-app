@@ -24,7 +24,7 @@
     @apply btn border border-neutral-700 bg-neutral-800 hover:bg-neutral-700 hover:border-neutral-600;
   }
   .btn-brand {
-    @apply btn text-neutral-900 bg-brand-400 hover:bg-brand-300;
+    @apply btn text-neutral-900 bg-brand hover:bg-brand-light;
   }
   .btn-border-icon {
     @apply btn-border f-center gap-x-4;
@@ -33,10 +33,10 @@
     @apply font-semibold text-3xl;
   }
   .link {
-    @apply max-w-max font-medium text-brand-400 hover:underline;
+    @apply max-w-max font-medium text-brand hover:underline;
   }
   .field {
-    @apply p-2 rounded-lg outline-none border border-neutral-700 bg-neutral-900 focus:border-brand-400 placeholder:text-neutral-500 transition-colors;
+    @apply p-2 rounded-lg outline-none border border-neutral-700 bg-neutral-900 focus:border-brand placeholder:text-neutral-500 transition-colors;
   }
   .text-with-lines {
     @apply w-full flex items-center before:w-1/2 before:h-[1px] before:mr-4 before:bg-neutral-300 after:w-1/2 after:h-[1px] after:ml-4 after:bg-neutral-300;
@@ -49,7 +49,7 @@
     font-family: Montserrat, sans;
   }
   ::selection {
-    @apply bg-brand-400 text-neutral-800;
+    @apply bg-brand text-neutral-800;
   }
   ::-webkit-scrollbar {
     @apply w-[1px];
@@ -68,5 +68,5 @@
 }
 
 #nprogress .bar {
-  @apply fixed z-[1001] top-0 left-0 w-full h-[2px] bg-brand-400;
+  @apply fixed z-[1001] top-0 left-0 w-full h-[2px] bg-brand;
 }

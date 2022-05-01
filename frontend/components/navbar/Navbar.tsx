@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className="container flex justify-between items-center h-16">
         <Link href="/">
           <a>
-            <Logo className="fill-brand-400 hover:fill-brand-300 transition-colors" />
+            <Logo className="fill-brand hover:fill-brand-light transition-colors" />
           </a>
         </Link>
         {user === undefined && <Spinner size={42} />}

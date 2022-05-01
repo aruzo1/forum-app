@@ -5,7 +5,7 @@ const Field = (props: IField) => (
   <div className={"flex flex-col gap-y-2 " + props.className}>
     <label
       htmlFor={props.name}
-      className={`w-fit text-brand-400 transition-colors ${
+      className={`w-fit text-brand transition-colors ${
         props.error && props.touched && "text-error"
       }`}
     >

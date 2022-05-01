@@ -9,7 +9,7 @@ const Welcome = () => {
       <div className="flex flex-col gap-y-8 justify-between items-center lg:items-start lg:w-7/12 p-8 text-center lg:text-left">
         <h1 className="title text-5xl">
           Are you ready to{" "}
-          <span className="underline decoration-brand-400 text-brand-400">
+          <span className="underline decoration-brand text-brand">
             join now?
           </span>
         </h1>
